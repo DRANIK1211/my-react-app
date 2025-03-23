@@ -3,7 +3,7 @@ import "./main.css"
 
 function App() {
 
-  const [info, setData] = useState("")
+  let [info, setData] = useState("")
 
   const getUserId = async () => {
     const response = await fetch('https://api.telegram.org/bot8010495012:AAHLKehTCGEHCvxwFLkSW6U8uphsEttL1qo/getUpdates');
@@ -30,10 +30,11 @@ function App() {
         <div className='inputText'>
           <input type='text' id="inputPass" />
         </div>
-        <div className='login'>Войти</div>
+        <div className='login' onClick={getUserId}>Войти</div>
         <p>
           {info}
         </p>
+        
       </div>
 
     </div>
