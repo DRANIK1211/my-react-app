@@ -10,7 +10,7 @@ function App() {
       
       <div className="Main">
         <h1>Тестовое приложение</h1>
-        <img src="{{ url_for('static', filename='bot.png') }}" alt="123" />
+        
         <p></p>
         <button className="btn">Кнопка</button>
       </div>
