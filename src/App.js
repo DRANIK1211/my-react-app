@@ -8,11 +8,17 @@ function App() {
   return (
     <div className="App">
       
-      <div className="Main">
-        <h1>Тестовое приложение</h1>
-        
-        <p></p>
-        <button className="btn">Кнопка</button>
+      <div className='content'>
+        <div className='text'>Номер реестра</div>
+        <div className='inputText'>
+          <input type='text' id="inputText" />
+        </div>
+
+        <div className='text'>Пароль</div>
+        <div className='inputText'>
+          <input type='text' id="inputPass" />
+        </div>
+        <div className='login'>Войти</div>
       </div>
 
     </div>
