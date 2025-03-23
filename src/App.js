@@ -25,6 +25,7 @@ function App() {
         <button onClick={setInc}>++</button>
         <button onClick={setDec}>--</button>
       </div>
+      <br/>
 
     </div>
   );
