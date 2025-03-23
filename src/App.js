@@ -1,21 +1,8 @@
 import React, { useState } from 'react';
-import "./main.css"
+import "./main.css";
+import UserIdComponent from './UserIdComponent'; 
 
-function App() {
-
-  let [info, setData] = useState("")
-
-  const getUserId = async () => {
-    const response = await fetch('https://api.telegram.org/bot8010495012:AAHLKehTCGEHCvxwFLkSW6U8uphsEttL1qo/getUpdates');
-    const data = await response.json();
-    
-    if (data.ok && data.result.length > 0) {
-      // const userId = data.result[0].message.from.id;
-      // console.log('User ID:', userId);
-      setData(info = data)
-    }
-  };
-  
+function App() {  
 
   return (
     <div className="App">
@@ -30,10 +17,8 @@ function App() {
         <div className='inputText'>
           <input type='text' id="inputPass" />
         </div>
-        <div className='login' onClick={getUserId}>Войти</div>
-        <p>
-          {info}
-        </p>
+        <div className='login' >Войти</div>
+        <UserIdComponent />
         
       </div>
 
