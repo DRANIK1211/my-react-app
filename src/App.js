@@ -19,22 +19,22 @@ function App() {
     }
   }, []);
 
-  if(!userData){
+  if(userData){
     const userService = new UserService("https://andreydrughinin.pythonanywhere.com")
     userService.getUser(userData.id)
-    .then(data => {log = data})
-    .catch(error => {log = error})
+    .then(log = true)
+    .catch(log = false)
   }
-  if(log === false){
+  if(log){
     return(
       <div className="App">   
-        <LogIn />
+        <UserIdComponent/>
       </div>
     )
   }else{
     return (
       <div className="App"> 
-        <UserIdComponent />
+        <LogIn/>
       </div>
     );
   }
