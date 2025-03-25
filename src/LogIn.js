@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-import UserService from "./data";
-import UserIdComponent from "./UserIdComponent";
 
 const LogIn = ({onSubmit}) => {
 
