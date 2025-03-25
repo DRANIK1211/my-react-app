@@ -22,7 +22,7 @@ function App() {
 
   const handleSubmit = (data) => {
     const userService = new UserService("https://andreydrughinin.pythonanywhere.com")
-    userService.addUser(userData.id, data.number, userData.username, data.name)
+    userService.addUser(userData.id, data.number, userData.username, data.username)
     .then(() => setLog(true))
     .catch(() => setLog(false))
 

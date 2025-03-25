@@ -20,7 +20,7 @@ const LogIn = ({onSubmit}) => {
     const handleSubmit = (e) => {
         e.preventDefault()
         onSubmit(formData)
-        setFormData({name:"", code:"", username:""})
+        setFormData({number:"", code:"", username:""})
     }
     return (
         <div className='content'>
