@@ -9,16 +9,6 @@ function App() {
   const [userData, setUserData] = useState(null);
   const [log, setLog] = useState(false);
   
-  useEffect(() => {
-    // Проверяем, доступен ли объект WebApp
-    if (window.Telegram && window.Telegram.WebApp) {
-      const user = window.Telegram.WebApp.initDataUnsafe?.user;
-      if (user) {
-        setUserData(user);
-        alert(user)
-      }
-    }
-  }, []);
 
 
   const handleSubmit = (data) => {
@@ -31,12 +21,23 @@ function App() {
   };
 
 
-  if(userData){
-    const userService = new UserService("https://andreydrughinin.pythonanywhere.com")
-    userService.getUser(userData.id)
-    .then(() => setLog(true))
-    .catch(() => setLog(false))
-  }
+  useEffect(() => {
+    if (userData) {
+      const userService = new UserService("https://andreydrughinin.pythonanywhere.com");
+      userService.getUser(userData.id)
+        .then((response) => {
+          // Проверяем, если response - это массив и содержит хотя бы один объект
+          if (Array.isArray(response) && response.length > 0) {
+            setLog(true);
+          } else {
+            setLog(false);
+          }
+        })
+        .catch(() => setLog(false));
+    }
+  }, [userData]); // Зависимость от userData
+
+  
   if(log){
     alert(log)
     return(
