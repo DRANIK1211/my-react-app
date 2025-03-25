@@ -28,7 +28,7 @@ const LogIn = () => {
             <form onSubmit={handleSubmit}>
                 <div className='text'>Номер реестра:</div>
                 <div className='inputText'>
-                    <input type='text' id="number" name="number" value={formData.name} onChange={handleChange} />
+                    <input type='text' id="number" name="number" value={formData.number} onChange={handleChange} />
                 </div>
 
                 <div className='text'>Код регистрации:</div>
@@ -36,11 +36,11 @@ const LogIn = () => {
                     <input type='text' id="code" name="code" value={formData.code} onChange={handleChange} />
                 </div>
 
-                <div className='login' type="submit" >Войти</div>
+                <button className='login' type="submit" >Войти</button>
             </form>
             
             <p>
-                {formData}
+                {JSON.stringify(formData)}
             </p>
         
         </div>
