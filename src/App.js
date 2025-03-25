@@ -20,6 +20,14 @@ function App() {
     
   };
 
+  useEffect(() => {
+    if (window.Telegram && window.Telegram.WebApp) {
+      const user = window.Telegram.WebApp.initDataUnsafe?.user;
+      if (user) {
+        setUserData(user);
+      }
+    }
+  }, []);
 
   useEffect(() => {
     if (userData) {
@@ -37,7 +45,7 @@ function App() {
     }
   }, [userData]); // Зависимость от userData
 
-  
+
   if(log){
     alert(log)
     return(
