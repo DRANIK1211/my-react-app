@@ -15,6 +15,7 @@ function App() {
       const user = window.Telegram.WebApp.initDataUnsafe?.user;
       if (user) {
         setUserData(user);
+        alert(user)
       }
     }
   }, []);
@@ -37,6 +38,7 @@ function App() {
     .catch(() => setLog(false))
   }
   if(log){
+    alert(log)
     return(
       <div className="App">   
         <UserIdComponent />
@@ -44,7 +46,9 @@ function App() {
       </div>
     )
   }else{
+    alert(log)
     return (
+      
       <div className="App"> 
         <LogIn onSubmit={handleSubmit}/>
       </div>
