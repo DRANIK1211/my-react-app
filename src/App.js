@@ -7,7 +7,7 @@ import UserIdComponent from './UserIdComponent';
 function App() {  
 
   const [userData, setUserData] = useState(null);
-  let log = false
+  const [log, setLog] = useState(false)
   
   useEffect(() => {
     // Проверяем, доступен ли объект WebApp
@@ -18,23 +18,31 @@ function App() {
       }
     }
   }, []);
+  const handleSubmit = (data) => {
+    const userService = new UserService("https://andreydrughinin.pythonanywhere.com")
+    userService.addUser(userData.id, data.number, userData.username, data.name)
+    .then(setLog(true))
+    .catch(setLog(false))
+
+    
+  };
 
   if(userData){
     const userService = new UserService("https://andreydrughinin.pythonanywhere.com")
     userService.getUser(userData.id)
-    .then(log = true)
-    .catch(log = false)
+    .then(setLog(true))
+    .catch(setLog(false))
   }
   if(log){
     return(
       <div className="App">   
-        <UserIdComponent/>
+        <UserIdComponent />
       </div>
     )
   }else{
     return (
       <div className="App"> 
-        <LogIn/>
+        <LogIn onSubmit={handleSubmit}/>
       </div>
     );
   }

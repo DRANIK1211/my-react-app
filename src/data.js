@@ -20,6 +20,17 @@ class UserService {
             throw error; // Пробрасываем ошибку дальше
         }
     }
+
+    //Регистрация
+    async addUser(id, number, alias, username){
+        try{
+            const response = await this.apiClient.get(`/addUser/${id}/${number}/${alias}/${username}`)
+            return response.data
+        } catch{
+            console.error('Ошибка при регистрации:', error);
+            throw error; // Пробрасываем ошибку дальше
+        }
+    }
 }
 
 export default UserService;

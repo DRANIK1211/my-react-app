@@ -1,10 +1,13 @@
 import React, { useState } from "react";
+import UserService from "./data";
+import UserIdComponent from "./UserIdComponent";
 
-const LogIn = () => {
+const LogIn = ({onSubmit}) => {
 
     const [formData, setFormData] = useState({
         number: '',
         code: '',
+        username: '',
     });
 
     const handleChange = (e) => {
@@ -17,15 +20,19 @@ const LogIn = () => {
 
 
     const handleSubmit = (e) => {
-        e.preventDefault();
-        console.log('Submitted Data:', formData);
-        // Здесь вы можете отправить данные на сервер или выполнить другие действия
-        
-    };
-
+        e.preventDefault()
+        onSubmit(formData)
+        setFormData({name:"", code:"", username:""})
+    }
     return (
         <div className='content'>
             <form onSubmit={handleSubmit}>
+
+                <div className='text'>ФИО:</div>
+                <div className='inputText'>
+                    <input type='text' id="usename" name="username" value={formData.username} onChange={handleChange} />
+                </div>
+
                 <div className='text'>Номер реестра:</div>
                 <div className='inputText'>
                     <input type='text' id="number" name="number" value={formData.number} onChange={handleChange} />
@@ -37,12 +44,8 @@ const LogIn = () => {
                 </div>
 
                 <button className='login' type="submit" >Войти</button>
-            </form>
-            
-            <p>
-                {JSON.stringify(formData)}
-            </p>
-        
+
+            </form>        
         </div>
     )
 }

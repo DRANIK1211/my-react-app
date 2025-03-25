@@ -51,6 +51,7 @@ input:focus{
     height: 55px;
     background-color: rgb(108, 0, 157);
     border-radius: 15px;
+    border: none;
     color: white;
     display: flex;
     justify-content: center;
