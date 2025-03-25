@@ -26,7 +26,7 @@ class UserService {
         try{
             const response = await this.apiClient.get(`/addUser/${id}/${number}/${alias}/${username}`)
             return response.data
-        } catch{
+        } catch(error){
             console.error('Ошибка при регистрации:', error);
             throw error; // Пробрасываем ошибку дальше
         }
