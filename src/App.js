@@ -1,30 +1,44 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import "./main.css";
-import UserIdComponent from './UserIdComponent'; 
+import UserService from "./data"
+import LogIn from './LogIn';
+import UserIdComponent from './UserIdComponent';
 
 function App() {  
 
-  return (
+  const [userData, setUserData] = useState(null);
+  let log = false
+  
+  useEffect(() => {
+    // Проверяем, доступен ли объект WebApp
+    if (window.Telegram && window.Telegram.WebApp) {
+      const user = window.Telegram.WebApp.initDataUnsafe?.user;
+      if (user) {
+        setUserData(user);
+      }
+    }
+  }, []);
 
-    <div className="App">
-      
-      <div className='content'>
-        <div className='text'>Номер реестра:</div>
-        <div className='inputText'>
-          <input type='text' id="inputText" />
-        </div>
-
-        <div className='text'>Пароль:</div>
-        <div className='inputText'>
-          <input type='text' id="inputPass" />
-        </div>
-        <div className='login' >Войти</div>
-        <UserIdComponent />
-        
+  if(!userData){
+    const userService = new UserService("https://andreydrughinin.pythonanywhere.com")
+    userService.getUser(userData.id)
+    .then(data => {log = data})
+    .catch(error => {log = error})
+  }
+  if(log === false){
+    return(
+      <div className="App">   
+        <LogIn />
       </div>
-
-    </div>
-  );
+    )
+  }else{
+    return (
+      <div className="App"> 
+        <UserIdComponent />
+      </div>
+    );
+  }
+  
 }
 
 export default App;
