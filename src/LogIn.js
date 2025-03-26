@@ -18,8 +18,11 @@ const LogIn = ({onSubmit}) => {
 
 
     const handleSubmit = (e) => {
+        alert("Функция выполняется 1")
         e.preventDefault()
+        alert("Функция выполняется 2")
         onSubmit(formData)
+        alert("Функция выполняется 3")
         setFormData({number:"", code:"", username:""})
     }
     return (
