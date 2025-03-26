@@ -27,13 +27,13 @@ function App() {
   if(log){
     return(
       <div className="App">
-        <MainComponent user={user}/>
+        <MainComponent user={userData}/>
       </div>
     )
   }else{
     return (
       <div className="App"> 
-        <LogIn onSubmit={handleSubmit}/>
+        <LogIn user={user}/>
       </div>
     );
   }
