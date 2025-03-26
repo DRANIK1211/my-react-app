@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import MainComponent from "./MainComponent";
+import UserService from "./data";
 
 const LogIn = (user) => {
 
@@ -23,7 +24,7 @@ const LogIn = (user) => {
     const handleSubmit = (e) => {
         e.preventDefault()
         const userService = new UserService("https://andreydrughinin.pythonanywhere.com");
-        userService.addUser(userData.id, data.number, userData.username, data.username)
+        userService.addUser(user.id, formData.number, user.username, formData.username)
         .then(
             () => {
                 setLog(true)
