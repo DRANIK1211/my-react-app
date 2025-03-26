@@ -99,7 +99,8 @@ function App() {
   if(log){
     return(
       <div className="App">   
-        <UserIdComponent userData={userData}/>
+        <div className='text'>id: {userData.id}</div>
+        <div className='text'>username: {userData.username}</div>
       </div>
     )
   }else{
