@@ -8,10 +8,9 @@ function App() {
   const [userData, setUserData] = useState(null);
   const [log, setLog] = useState(false);
   const user = window.Telegram.WebApp.initDataUnsafe.user
-  const userService = new UserService("https://andreydrughinin.pythonanywhere.com");
   useEffect(
     () => {
-      setUserData(user)
+      const userService = new UserService("https://andreydrughinin.pythonanywhere.com");
       setUserData(user)
       userService.getUser(user.id)
       .then(
@@ -27,6 +26,7 @@ function App() {
   
 
   const handleSubmit = (data) => {
+    const userService = new UserService("https://andreydrughinin.pythonanywhere.com");
     userService.addUser(userData.id, data.number, userData.username, data.username)
     .then(
       () => {
