@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import MainComponent from "./MainComponent";
 import UserService from "./data";
 
-const LogIn = (user) => {
+const LogIn = ({user}) => {
 
     const [formData, setFormData] = useState({
         number: '',
