@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import "./main.css";
 import UserService from "./data"
 import LogIn from './LogIn';
@@ -9,79 +9,10 @@ function App() {
   const [log, setLog] = useState(false);
   const user = window.Telegram.WebApp.initDataUnsafe.user
   const userService = new UserService("https://andreydrughinin.pythonanywhere.com");
-  setUserData(user)
-  userService.getUser(user.id)
-    .then(
-      (res) => {
-        if(Array.isArray(res) && res.length > 0){
-          setLog(true)
-        }
-      }
-    )
-
-  const handleSubmit = (data) => {
-    userService.addUser(userData.id, data.number, userData.username, data.username)
-    .then(
-      () => {
-        setLog(true)
-      }
-    )
-  };
-
-  /*useEffect(
+  useEffect(
     () => {
-      if (window.Telegram && window.Telegram.WebApp){
-        const user = window.Telegram.WebApp.initDataUnsafe.user;
-        if(user){
-          setUserData(user)
-
-          const userService = new UserService("https://andreydrughinin.pythonanywhere.com");
-          userService.getUser(user.id)
-          .then(
-            (res) => {
-              if(Array.isArray(res) && res.length > 0){
-                setLog(true)
-              }
-            }
-          )
-
-        }
-      }
-    }, []
-  )*/
-
-
-
-  /*useEffect(() => {
-    if (window.Telegram && window.Telegram.WebApp) {
-      const user = window.Telegram.WebApp.initDataUnsafe?.user;
-      if (user) {
-        setUserData(user);
-      }
-    }
-  }, []);
-
-  useEffect(() => {
-    if (userData) {
-      const userService = new UserService("https://andreydrughinin.pythonanywhere.com");
-      userService.getUser(userData.id)
-        .then((response) => {
-          if (Array.isArray(response) && response.length > 0) {
-            setLog(true);
-          } else {
-            setLog(false);
-          }
-        })
-        .catch(() => setLog(false));
-    }
-  }, [userData]);*/
-
-  /*if (window.Telegram.WebApp){
-    const user = window.Telegram.WebApp.initDataUnsafe.user;
-    if(user){
       setUserData(user)
-
-      const userService = new UserService("https://andreydrughinin.pythonanywhere.com");
+      setUserData(user)
       userService.getUser(user.id)
       .then(
         (res) => {
@@ -92,7 +23,17 @@ function App() {
       )
 
     }
-  }*/
+  )
+  
+
+  const handleSubmit = (data) => {
+    userService.addUser(userData.id, data.number, userData.username, data.username)
+    .then(
+      () => {
+        setLog(true)
+      }
+    )
+  };
 
 
   if(log){
