@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import "./main.css";
 import UserService from "./data"
 import LogIn from './LogIn';
+import MainComponent from './MainComponent'
 
 function App() {  
   const [userData, setUserData] = useState(null);
@@ -22,26 +23,11 @@ function App() {
 
     }, [user]
   )
-  
-
-  const handleSubmit = (data) => {
-    alert("Функция выполняется 4")
-    const userService = new UserService("https://andreydrughinin.pythonanywhere.com");
-    userService.addUser(userData.id, data.number, userData.username, data.username)
-    .then(
-      () => {
-        alert("Функция выполняется 5")
-        setUserData(user)
-        setLog(true)
-      }
-    )
-  };
 
   if(log){
     return(
-      <div className="App">   
-        <div className='text'>id: {userData.id}</div>
-        <div className='text'>username: {userData.username}</div>
+      <div className="App">
+        <MainComponent user={user}/>
       </div>
     )
   }else{

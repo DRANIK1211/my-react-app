@@ -1,6 +1,7 @@
 import React, { useState } from "react";
+import MainComponent from "./MainComponent";
 
-const LogIn = (onSubmit) => {
+const LogIn = (user) => {
 
     const [formData, setFormData] = useState({
         number: '',
@@ -15,15 +16,26 @@ const LogIn = (onSubmit) => {
             [name]: value,
         });
     };
+    
+    const [log, setLog] = useState(false)
 
 
     const handleSubmit = (e) => {
-        alert("Функция выполняется 1")
         e.preventDefault()
-        alert("Функция выполняется 2")
-        onSubmit(formData)
-        alert("Функция выполняется 3")
+        const userService = new UserService("https://andreydrughinin.pythonanywhere.com");
+        userService.addUser(userData.id, data.number, userData.username, data.username)
+        .then(
+            () => {
+                setLog(true)
+            }
+        )
         setFormData({number:"", code:"", username:""})
+    }
+
+    if(log){
+        return(
+            <MainComponent user={user}/>
+        )
     }
     return (
         <div className='content'>
