@@ -9,21 +9,14 @@ function App() {
   const user = window.Telegram.WebApp.initDataUnsafe.user
   useEffect(
     () => {
-      alert("Начало useEffect")
       const userService = new UserService("https://andreydrughinin.pythonanywhere.com");
       userService.getUser(user.id)
       .then(
         (res) => {
-          alert("Пришёл ответ с пользователем" + res)
           if(Array.isArray(res) && res.length > 0){
             setUserData(user)
             setLog(true)
           }
-        }
-      )
-      .catch(
-        (error) => {
-          alert("error: " + error)
         }
       )
 
@@ -36,6 +29,7 @@ function App() {
     userService.addUser(userData.id, data.number, userData.username, data.username)
     .then(
       () => {
+        setUserData(user)
         setLog(true)
       }
     )
