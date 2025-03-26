@@ -11,11 +11,11 @@ function App() {
   useEffect(
     () => {
       const userService = new UserService("https://andreydrughinin.pythonanywhere.com");
-      setUserData(user)
       userService.getUser(user.id)
       .then(
         (res) => {
           if(Array.isArray(res) && res.length > 0){
+            setUserData(user)
             setLog(true)
           }
         }
@@ -30,13 +30,14 @@ function App() {
     userService.addUser(userData.id, data.number, userData.username, data.username)
     .then(
       () => {
+        setUserData(user)
         setLog(true)
       }
     )
   };
 
 
-  if(log){
+  if(log | userData){
     return(
       <div className="App">   
         <div className='text'>id: {userData.id}</div>
