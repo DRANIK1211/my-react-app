@@ -8,11 +8,19 @@ function App() {
 
   const [userData, setUserData] = useState(null);
   const [log, setLog] = useState(false);
-  
-
+  const user = window.Telegram.WebApp.initDataUnsafe.user
+  const userService = new UserService("https://andreydrughinin.pythonanywhere.com");
+  setUserData(user)
+  userService.getUser(user.id)
+    .then(
+      (res) => {
+        if(Array.isArray(res) && res.length > 0){
+          setLog(true)
+        }
+      }
+    )
 
   const handleSubmit = (data) => {
-    const userService = new UserService("https://andreydrughinin.pythonanywhere.com")
     userService.addUser(userData.id, data.number, userData.username, data.username)
     .then(
       () => {
@@ -69,7 +77,7 @@ function App() {
     }
   }, [userData]);*/
 
-  if (window.Telegram && window.Telegram.WebApp){
+  /*if (window.Telegram.WebApp){
     const user = window.Telegram.WebApp.initDataUnsafe.user;
     if(user){
       setUserData(user)
@@ -85,7 +93,7 @@ function App() {
       )
 
     }
-  }
+  }*/
 
 
   if(log){
