@@ -24,6 +24,11 @@ function App() {
           }
         }
       )
+      .catch(
+        (error) => {
+          alert("error: " + error.message)
+        }
+      )
 
     }, [user]
   )
