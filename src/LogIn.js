@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const LogIn = ({onSubmit}) => {
+const LogIn = (onSubmit) => {
 
     const [formData, setFormData] = useState({
         number: '',

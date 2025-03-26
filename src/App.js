@@ -25,10 +25,12 @@ function App() {
   
 
   const handleSubmit = (data) => {
+    alert("Функция выполняется 4")
     const userService = new UserService("https://andreydrughinin.pythonanywhere.com");
     userService.addUser(userData.id, data.number, userData.username, data.username)
     .then(
       () => {
+        alert("Функция выполняется 5")
         setUserData(user)
         setLog(true)
       }
