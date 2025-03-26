@@ -91,7 +91,7 @@ function App() {
   if(log){
     return(
       <div className="App">   
-        <UserIdComponent />
+        <UserIdComponent userData={userData}/>
       </div>
     )
   }else{

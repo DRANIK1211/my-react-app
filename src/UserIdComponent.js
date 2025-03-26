@@ -1,21 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 
-const UserIdComponent = () => {
-  const [userData, setUserData] = useState(null);
-
-  useEffect(() => {
-    // Проверяем, доступен ли объект WebApp
-    if (window.Telegram && window.Telegram.WebApp) {
-      const user = window.Telegram.WebApp.initDataUnsafe?.user;
-      if (user) {
-        setUserData(user);
-      }
-    }
-  }, []);
-
-  if (!userData) {
-    return <div>Загрузка данных о пользователе...</div>;
-  }
+const UserIdComponent = (userData) => { 
 
   return (
     <div>
