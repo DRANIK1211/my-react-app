@@ -14,13 +14,38 @@ function App() {
   const handleSubmit = (data) => {
     const userService = new UserService("https://andreydrughinin.pythonanywhere.com")
     userService.addUser(userData.id, data.number, userData.username, data.username)
-    .then(() => setLog(true))
-    .catch(() => setLog(false))
-
-    
+    .then(
+      () => {
+        setLog(true)
+      }
+    )
   };
 
-  useEffect(() => {
+  useEffect(
+    () => {
+      if (window.Telegram && window.Telegram.WebApp){
+        const user = window.Telegram.WebApp.initDataUnsafe.user;
+        if(user){
+          setUserData(user)
+
+          const userService = new UserService("https://andreydrughinin.pythonanywhere.com");
+          userService.getUser(user.id)
+          .then(
+            (res) => {
+              if(Array.isArray(res) && res.length > 0){
+                setLog(true)
+              }
+            }
+          )
+
+        }
+      }
+    }, []
+  )
+
+
+
+  /*useEffect(() => {
     if (window.Telegram && window.Telegram.WebApp) {
       const user = window.Telegram.WebApp.initDataUnsafe?.user;
       if (user) {
@@ -34,7 +59,6 @@ function App() {
       const userService = new UserService("https://andreydrughinin.pythonanywhere.com");
       userService.getUser(userData.id)
         .then((response) => {
-          // Проверяем, если response - это массив и содержит хотя бы один объект
           if (Array.isArray(response) && response.length > 0) {
             setLog(true);
           } else {
@@ -43,21 +67,17 @@ function App() {
         })
         .catch(() => setLog(false));
     }
-  }, [userData]); // Зависимость от userData
+  }, [userData]);*/
 
 
   if(log){
-    alert(log)
     return(
       <div className="App">   
         <UserIdComponent />
-
       </div>
     )
   }else{
-    alert(log)
     return (
-      
       <div className="App"> 
         <LogIn onSubmit={handleSubmit}/>
       </div>
