@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import "./main.css";
 import UserService from "./data"
 import LogIn from './LogIn';
-import UserIdComponent from './UserIdComponent';
 
 function App() {  
 
