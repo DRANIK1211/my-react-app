@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import "./main.css";
 import UserService from "./data"
 import LogIn from './LogIn';
@@ -21,7 +21,7 @@ function App() {
     )
   };
 
-  useEffect(
+  /*useEffect(
     () => {
       if (window.Telegram && window.Telegram.WebApp){
         const user = window.Telegram.WebApp.initDataUnsafe.user;
@@ -41,7 +41,7 @@ function App() {
         }
       }
     }, []
-  )
+  )*/
 
 
 
@@ -68,6 +68,24 @@ function App() {
         .catch(() => setLog(false));
     }
   }, [userData]);*/
+
+  if (window.Telegram && window.Telegram.WebApp){
+    const user = window.Telegram.WebApp.initDataUnsafe.user;
+    if(user){
+      setUserData(user)
+
+      const userService = new UserService("https://andreydrughinin.pythonanywhere.com");
+      userService.getUser(user.id)
+      .then(
+        (res) => {
+          if(Array.isArray(res) && res.length > 0){
+            setLog(true)
+          }
+        }
+      )
+
+    }
+  }
 
 
   if(log){
