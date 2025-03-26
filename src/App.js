@@ -4,11 +4,9 @@ import UserService from "./data"
 import LogIn from './LogIn';
 
 function App() {  
-  alert("Запуск")
   const [userData, setUserData] = useState(null);
   const [log, setLog] = useState(false);
   const user = window.Telegram.WebApp.initDataUnsafe.user
-  alert("user: " + user.id)
   useEffect(
     () => {
       alert("Начало useEffect")
@@ -20,7 +18,6 @@ function App() {
           if(Array.isArray(res) && res.length > 0){
             setUserData(user)
             setLog(true)
-            alert("Изменение Log и userData")
           }
         }
       )
@@ -44,9 +41,7 @@ function App() {
     )
   };
 
-  alert("Проверка log")
   if(log){
-    alert("Отрисовка компонента")
     return(
       <div className="App">   
         <div className='text'>id: {userData.id}</div>
@@ -54,7 +49,6 @@ function App() {
       </div>
     )
   }else{
-    alert("Отрисовка LogIn")
     return (
       <div className="App"> 
         <LogIn onSubmit={handleSubmit}/>
