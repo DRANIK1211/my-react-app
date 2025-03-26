@@ -1,6 +1,6 @@
 import React from 'react';
 
-const MainComponent = (user) => { 
+const MainComponent = ({user}) => { 
 
   return (
     <div className='content'>
