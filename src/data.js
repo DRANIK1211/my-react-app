@@ -14,10 +14,10 @@ class UserService {
     async getUser(userId) {
         try {
             const response = await this.apiClient.get(`/getUser/${userId}`);
-            alert("data: " + response)
             return response.data; // Возвращаем данные в формате JSON
         } catch (error) {
             console.error('Ошибка при получении пользователя:', error);
+            alert("error: " + error)
             throw error; // Пробрасываем ошибку дальше
         }
     }

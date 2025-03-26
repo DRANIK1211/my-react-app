@@ -26,7 +26,7 @@ function App() {
       )
       .catch(
         (error) => {
-          alert("error: " + error.message)
+          alert("error: " + error)
         }
       )
 
