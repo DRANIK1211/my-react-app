@@ -27,7 +27,7 @@ const LogIn = (onSubmit) => {
     }
     return (
         <div className='content'>
-            <form>
+            <form onSubmit={handleSubmit}>
 
                 <div className='text'>ФИО:</div>
                 <div className='inputText'>
@@ -44,7 +44,7 @@ const LogIn = (onSubmit) => {
                     <input type='text' id="code" name="code" value={formData.code} onChange={handleChange} />
                 </div>
 
-                <button className='login' onClick={handleSubmit} >Войти</button>
+                <button className='login' type="submit" >Войти</button>
 
             </form>        
         </div>
