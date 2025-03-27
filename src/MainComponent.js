@@ -5,16 +5,15 @@ const MainComponent = ({user, num}) => {
   console.log(user)
   const [menu_state, setMenuState] = useState(num)
 
-  const but_menu = document.querySelectorAll(".menu-button");
   const activator = (e) => {
-    if(menu_state == 1){
+    if(menu_state === 1){
       setMenuState(2)
     }else{
       setMenuState(1)
     }
   }
 
-  if(menu_state == 1){
+  if(menu_state === 1){
     return (
       <div className='main-screen'>
         <div className='tap-menu'>
