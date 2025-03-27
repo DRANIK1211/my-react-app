@@ -28,6 +28,9 @@
 #ProfileBut {
     border-radius: 0px 0px 0px 15px;
 }
+.main{
+    width: 100%;
+}
 
 .main-text{
     margin-top: 38px;
@@ -43,7 +46,11 @@
 }
 .main-text-znak .p{
     width: 70%;
+    background-color: black;
+    text-align: left;
 }
 .main-text-znak .v{
     width: 30%;
+    background-color: #6B009C;
+    text-align: left;
 }
