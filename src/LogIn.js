@@ -35,7 +35,7 @@ const LogIn = ({user}) => {
 
     if(log){
         return(
-            <MainComponent user={user}/>
+            <MainComponent user={user} num={1}/>
         )
     }
     return (

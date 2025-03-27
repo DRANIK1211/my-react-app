@@ -28,7 +28,7 @@ function App() {
   if(log){
     return(
       <div className="App">
-        <MainComponent user={userData}/>
+        <MainComponent user={userData} num={1}/>
       </div>
     )
   }else{

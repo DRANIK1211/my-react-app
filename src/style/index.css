@@ -7,6 +7,7 @@
 
 .menu-button{
     width: 50%;
+    height: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -17,5 +18,5 @@
 }
 
 .menu-button .desactive{
-    background-color: var(--tg-theme-bg-color);
+    background-color: var(--tg-theme-secondary-bg-color);
 }
