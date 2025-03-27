@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import "./main.css";
+import "./style/main.css";
+import "./style/index.css";
 import UserService from "./data"
 import LogIn from './LogIn';
 import MainComponent from './MainComponent'

@@ -1,0 +1,21 @@
+.tap-menu{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.menu-button{
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-radius: 0px 0px 15px 15px;
+    color: black;
+    font-size: 16px;
+}
+
+.menu-button .desactive{
+    background-color: var(--tg-theme-bg-color);
+}
