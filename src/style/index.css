@@ -18,5 +18,32 @@
 }
 
 .menu-button .desactive{
-    background-color: var(--tg-theme-secondary-bg-color);
+    background-color: #6B009C;
+}
+
+#MainBut {
+    border-radius: 0px 0px 15px 0px;
+}
+
+#ProfileBut {
+    border-radius: 0px 0px 0px 15px;
+}
+
+.main-text{
+    margin-top: 38px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.main-text-znak{
+    margin-top: 13px;
+    display: flex;
+    flex-direction: row;
+    font-size: 14px;
+}
+.main-text-znak .p{
+    width: 70%;
+}
+.main-text-znak .v{
+    width: 30%;
 }
