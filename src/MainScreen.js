@@ -33,6 +33,10 @@ const MainScreen = ({user}) => {
     //     )
     // }
 
+    const del = (num)=>{
+        alert("num: " + num)
+    }
+
     let medList = <div></div>
     if (med.length > 0) {
         medList = med.map((i) => {
@@ -44,7 +48,7 @@ const MainScreen = ({user}) => {
                     </div>
                     <div className="med-btn">
                         <div className="btn-red">Редактировать</div>
-                         <div className="btn-del" onClick={() => {alert(i.number)}}>Удалить</div>{/* () => del(i.number) */}
+                         <div className="btn-del" onClick={() => {del(i.number)}}>Удалить</div>{/* () => del(i.number) */}
                     </div>
                 </div>
             )
