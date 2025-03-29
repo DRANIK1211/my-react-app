@@ -18,8 +18,11 @@ const MainScreen = ({user}) => {
     
         }, [user]
     )
-
-    let medList = med.map((i) => medComponent(i))
+    let medList = <div></div>
+    if (med.length > 0) {
+        medList = med.map((i) => medComponent(i))
+    }
+    
 
     return(
         <div className="content main">

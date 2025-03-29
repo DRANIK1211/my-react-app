@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-// import MainScreen from './MainScreen';
+import MainScreen from './MainScreen';
 
 const MainComponent = ({user, num}) => { 
   const [menu_state, setMenuState] = useState(num)
 
-  const activator = () => {
+  const activator = (e) => {
     if(menu_state === 1){
       setMenuState(2)
     }else{
@@ -19,7 +19,7 @@ const MainComponent = ({user, num}) => {
           <div className='menu-button' id="MainBut" onClick={activator}>Главная</div>
           <div className='menu-button desactive' id="ProfileBut" onClick={activator}>Профиль</div>
         </div>
-        {/* <MainScreen user={user} /> */}
+        <MainScreen user={user} />
       </div>
     );
   }else{
