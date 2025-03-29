@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import UserService from "./data";
-import medComponent from "./med-component";
 
 const MainScreen = ({user}) => {
 
@@ -19,20 +18,30 @@ const MainScreen = ({user}) => {
         }, [user]
     )
 
-    const clickDel = (number) => {
-        alert(number)
-        // const userService = UserService("https://andreydrughinin.pythonanywhere.com");
-        // userService.delMed(med.number)
-        //   .then(
-        //     (res) => {
-        //       setMed(res)
-        //     }
-        // )
+    const del = (number) => {
+        const userService = UserService("https://andreydrughinin.pythonanywhere.com");
+        userService.delMed(number)
+        .then(
+            setMed(med.filter(item => {
+                item.number != number
+            }))
+        )
     }
 
     let medList = <div></div>
     if (med.length > 0) {
-        medList = med.map((i) =>  medComponent(i, clickDel))
+        medList = med.map((i) => {
+            <div className="med">
+                <div className="med-component">
+                    <div className="component-name">{med.name}</div>
+                    <div className="component-count">{med.amount}</div>
+                </div>
+                <div className="med-btn">
+                    <div className="btn-red">Редактировать</div>
+                    <div className="btn-del" onClick={() => del(med.number)}>Удалить</div>
+                </div>
+            </div>
+        })
     }
 
 
