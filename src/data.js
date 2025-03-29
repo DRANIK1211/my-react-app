@@ -21,6 +21,17 @@ class UserService {
         }
     }
 
+    // Метод для получения медов
+    async getMed(userId) {
+        try {
+            const response = await this.apiClient.get(`/getMed/${userId}`);
+            return response.data; // Возвращаем данные в формате JSON
+        } catch (error) {
+            console.error('Ошибка при получении мёда:', error);
+            throw error; // Пробрасываем ошибку дальше
+        }
+    }
+
     //Регистрация
     async addUser(id, number, alias, username){
         try{

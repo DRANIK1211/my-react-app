@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import MainScreen from './MainScreen';
 
 const MainComponent = ({user, num}) => { 
-  console.log(user)
   const [menu_state, setMenuState] = useState(num)
 
   const activator = (e) => {
