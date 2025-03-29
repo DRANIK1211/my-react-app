@@ -92,24 +92,6 @@ const MainScreen = ({user}) => {
             analysis = <input class="check" type="checkbox" />
         }
 
-        let now_date = new Date()
-        const [formMed, setFormMed] = useState({
-                name: `${med_redact.name}`,
-                amount: `${med_redact.amount}`,
-                amountMerc: `${med_redact.amountMerc}`,
-                address: `${med_redact.address}`,
-                analysis: `${med_redact.analysis}`,
-                date: formatDate(now_date),
-        });
-
-        const handleChange = (e) => {
-            const { name, value } = e.target;
-            setFormMed({
-                ...formData,
-                [name]: value,
-            });
-        };
-
         return (
             <div className="wrapper">
                 <div className="name-screen">Редактировать</div>
@@ -117,28 +99,28 @@ const MainScreen = ({user}) => {
                 <div className="block">
                     <div className="name-block">Наименование</div>
                     <div className="input-block">
-                        <input type="text" value={formMed.name} onChange={handleChange} />
+                        <input type="text" />
                     </div>
                 </div>
                 <div className="block">
                     <div className="name-block">Количество (в килограммах)</div>
                     <div className="input-block">
-                        <input type="text" value={formMed.amount} onChange={handleChange} />
+                        <input type="text" />
                     </div>
                 </div>
                 <div className="block">
                     <div className="name-block">Количество с меркурием (в килограммах)</div>
                     <div className="input-block">
-                        <input type="text" value={formMed.amountMerc} onChange={handleChange} />
+                        <input type="text" />
                     </div>
                 </div>
                 <div className="block">
                     <div className="name-block">Местонахождение мёда (Область, город)</div>
                     <div className="input-block">
-                        <input type="text" value={formMed.address} onChange={handleChange} />
+                        <input type="text" />
                     </div>
                 </div>
-                <label class="check-block" onClick={ () => { if(formMed.analysis === "Да") {setFormMed(name="analysis", "Нет")} else {setFormMed(name="analysis", "Да")}}}>
+                <label class="check-block">
                     {analysis}
                     <span class="custom-check"></span>
                     <div class="check-name">Есть пыльцевой анализ</div> 
