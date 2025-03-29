@@ -32,8 +32,10 @@ const MainScreen = ({user}) => {
                 <div className="count">Кол-во, в кг</div>
             </div>
 
-            {medList}
-
+            <div className="wrap">
+                {medList}
+            </div>
+            
             <div className="add-med">
                 <div className="add-text">+</div>
             </div>
