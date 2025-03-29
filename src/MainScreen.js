@@ -22,9 +22,10 @@ const MainScreen = ({user}) => {
         const userService = UserService("https://andreydrughinin.pythonanywhere.com");
         userService.delMed(number)
         .then(
-            setMed(med.filter(item => {
-                item.number != number
-            }))
+            ()=>{
+                let new_med = med.filter(item => item.number != number)
+                setMed(new_med)
+            } 
         )
     }
 
