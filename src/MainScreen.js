@@ -34,12 +34,10 @@ const MainScreen = ({user}) => {
     // }
 
     const del = (num)=>{
-        alert("num: " + num)
-        const userService = UserService("https://andreydrughinin.pythonanywhere.com");
+        const userService = new UserService("https://andreydrughinin.pythonanywhere.com");
         userService.delMed(num)
         .then(
             ()=>{
-                alert("ok")
                 let new_med = med.filter(item => item.number !== num)
                 setMed(new_med)
             } 

@@ -38,7 +38,7 @@ class UserService {
             const response = await this.apiClient.get(`/delMed/${number}`)
             return response.data
         } catch(error){
-            console.error('Ошибка при регистрации:', error);
+            console.error('Ошибка:', error);
             throw error; // Пробрасываем ошибку дальше
         }
     }
