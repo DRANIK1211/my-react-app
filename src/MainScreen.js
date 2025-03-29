@@ -16,7 +16,7 @@ const MainScreen = ({user}) => {
             }
           )
     
-        }, []
+        }, [user]
     )
 
     let medList = med.map((i) => medComponent(i))
