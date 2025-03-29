@@ -32,6 +32,17 @@ class UserService {
         }
     }
 
+    // Удаление мёда
+    async delMed(number){
+        try{
+            const response = await this.apiClient.get(`/delMed/${number}`)
+            return response.data
+        } catch(error){
+            console.error('Ошибка при регистрации:', error);
+            throw error; // Пробрасываем ошибку дальше
+        }
+    }
+
     //Регистрация
     async addUser(id, number, alias, username){
         try{

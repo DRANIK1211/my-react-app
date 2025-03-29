@@ -18,10 +18,24 @@ const MainScreen = ({user}) => {
     
         }, [user]
     )
+
+    const clickDel = (number) => {
+        alert(number)
+        // const userService = UserService("https://andreydrughinin.pythonanywhere.com");
+        // userService.delMed(med.number)
+        //   .then(
+        //     (res) => {
+        //       setMed(res)
+        //     }
+        // )
+    }
+
     let medList = <div></div>
     if (med.length > 0) {
-        medList = med.map((i) => medComponent(i))
+        medList = med.map((i) => <medComponent med={i} delete={clickDel} />)
     }
+
+
     
 
     return(
