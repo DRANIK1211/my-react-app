@@ -44,7 +44,7 @@ const MainScreen = ({user}) => {
                     </div>
                     <div className="med-btn">
                         <div className="btn-red">Редактировать</div>
-                         <div className="btn-del" onClick={alert}>Удалить</div>{/* () => del(i.number) */}
+                         <div className="btn-del" onClick={() => {alert(i.number)}}>Удалить</div>{/* () => del(i.number) */}
                     </div>
                 </div>
             )
