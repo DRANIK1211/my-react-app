@@ -5,7 +5,7 @@ const MainScreen = ({user}) => {
 
     const [med, setMed] = useState("")
     const [red_component, setRedComponent] = useState(-1)
-    let med_redact = []
+    const [med_redact, setMedRedact] = useState([])
     
 
     useEffect(
@@ -23,9 +23,9 @@ const MainScreen = ({user}) => {
 
     useEffect(
         () => {
-            med_redact = med.filter(
+            setMedRedact(med.filter(
                 item => item.number === red_component
-            )
+            ))
         }, [red_component]
     )
 
