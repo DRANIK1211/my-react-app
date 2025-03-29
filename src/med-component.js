@@ -1,5 +1,4 @@
 import React from "react";
-import UserService from "./data";
 
 const medComponent = ( { med, clearComponent } ) => {
 

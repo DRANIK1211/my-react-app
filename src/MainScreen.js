@@ -32,7 +32,7 @@ const MainScreen = ({user}) => {
 
     let medList = <div></div>
     if (med.length > 0) {
-        medList = med.map((i) => <medComponent med={i} delete={clickDel} />)
+        medList = med.map((i) =>  medComponent(med={i}, clearComponent={clickDel}))
     }
 
 
