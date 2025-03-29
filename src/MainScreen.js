@@ -26,7 +26,7 @@ const MainScreen = ({user}) => {
             setMedRedact(med.filter(
                 item => item.number === red_component
             ))
-        }, [red_component]
+        }, [red_component, med]
     )
 
 
