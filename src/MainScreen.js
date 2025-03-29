@@ -18,20 +18,20 @@ const MainScreen = ({user}) => {
         }, [user]
     )
 
-    const del = (number) => {
-        const userService = UserService("https://andreydrughinin.pythonanywhere.com");
-        userService.delMed(number)
-        .then(
-            ()=>{
-                let new_med = med.filter(item => item.number !== number)
-                setMed(new_med)
-            } 
-        ).catch(
-            (error)=>{
-                alert(error)
-            }
-        )
-    }
+    // const del = (number) => {
+    //     const userService = UserService("https://andreydrughinin.pythonanywhere.com");
+    //     userService.delMed(number)
+    //     .then(
+    //         ()=>{
+    //             let new_med = med.filter(item => item.number !== number)
+    //             setMed(new_med)
+    //         } 
+    //     ).catch(
+    //         (error)=>{
+    //             alert(error)
+    //         }
+    //     )
+    // }
 
     let medList = <div></div>
     if (med.length > 0) {
