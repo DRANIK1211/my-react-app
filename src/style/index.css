@@ -91,7 +91,7 @@
 
 .med-component {
     background-color: white;
-    width: 100%;
+    width: 90%;
     height: 50px;
     border-radius: 15px 15px 0px 0px;
     display: flex;
@@ -121,7 +121,7 @@
 }
 
 .med-btn {
-    width: 100%;
+    width: 90%;
     height: 30px;
     display: flex;
     flex-direction: row;
