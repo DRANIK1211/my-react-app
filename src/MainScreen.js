@@ -26,6 +26,10 @@ const MainScreen = ({user}) => {
                 let new_med = med.filter(item => item.number !== number)
                 setMed(new_med)
             } 
+        ).catch(
+            (error)=>{
+                alert(error)
+            }
         )
     }
 
