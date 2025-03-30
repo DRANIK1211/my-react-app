@@ -22,6 +22,25 @@ const MainScreen = ({user}) => {
         }, [user]
     )
 
+    useEffect(
+        () => {
+            if(red_component !== -1){
+                med_redact = med.filter(item => item.number === red_component)[0]
+                setFormMed(
+                    {
+                        amount: med_redact.amount,
+                        amountMerc: med_redact.amountMerc,
+                        address: med_redact.address,
+                    }
+                )
+
+                if(med_redact.analysis === "Да") {
+                    setAnalysis(true)
+                }
+            }
+        }, [red_component]
+    )
+
 
     const del = (num)=>{
         const userService = new UserService("https://andreydrughinin.pythonanywhere.com");
@@ -78,24 +97,6 @@ const MainScreen = ({user}) => {
             </div>
         );
     }else{
-        useEffect(
-            () => {
-                med_redact = med.filter(item => item.number === red_component)[0]
-                setFormMed(
-                    {
-                        amount: med_redact.amount,
-                        amountMerc: med_redact.amountMerc,
-                        address: med_redact.address,
-                    }
-                )
-
-                if(med_redact.analysis === "Да") {
-                    setAnalysis(true)
-                }
-                
-            }, []
-        )
-        
         
         const check_click = () => {
             setAnalysis(!analysis)
