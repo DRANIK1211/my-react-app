@@ -83,7 +83,7 @@ const MainScreen = ({user}) => {
         }else{
             analysis = <input class="check" type="checkbox" />
         }
-
+        alert(med_redact.number)
         return (
             <div className="wrapper">
                 <div className="name-screen">Редактировать</div>
