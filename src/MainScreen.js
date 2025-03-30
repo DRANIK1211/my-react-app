@@ -6,7 +6,7 @@ const MainScreen = ({user}) => {
     const [med, setMed] = useState("")
     const [red_component, setRedComponent] = useState(-1)
     const [analysis, setAnalysis] = useState(false)
-    let med_redact = ""
+    const [med_redact, setMedRedact] = useState('')
     const [form_med, setFormMed] = useState('')
 
     useEffect(
@@ -25,7 +25,7 @@ const MainScreen = ({user}) => {
     useEffect(
         () => {
             if(red_component !== -1){
-                med_redact = med.filter(item => item.number === red_component)[0]
+                setMedRedact(med.filter(item => item.number === red_component)[0])
                 setFormMed(
                     {
                         amount: med_redact.amount,
