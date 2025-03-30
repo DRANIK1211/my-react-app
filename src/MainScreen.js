@@ -5,7 +5,6 @@ const MainScreen = ({user}) => {
 
     const [med, setMed] = useState("")
     const [red_component, setRedComponent] = useState(-1)
-    const [med_redact, setMedRedact] = useState([])
     
 
     useEffect(
@@ -19,14 +18,6 @@ const MainScreen = ({user}) => {
           )
     
         }, [user]
-    )
-
-    useEffect(
-        () => {
-            setMedRedact(med.filter(
-                item => item.number === red_component
-            ))
-        }, [red_component, med]
     )
 
 
@@ -56,7 +47,7 @@ const MainScreen = ({user}) => {
                     </div>
                     <div className="med-btn">
                         <div className="btn-red" onClick={() => {setRedComponent(i.number)}}>Редактировать</div>
-                         <div className="btn-del" onClick={() => {del(i.number)}}>Удалить</div>{/* () => del(i.number) */}
+                         <div className="btn-del" onClick={() => {del(i.number)}}>Удалить</div>
                     </div>
                 </div>
             )
@@ -85,6 +76,7 @@ const MainScreen = ({user}) => {
             </div>
         );
     }else{
+        let med_redact = med.filter(item => item.number === red_component)
         let analysis = ""
         if(med_redact.analysis === "Да") {
             analysis = <input class="check" type="checkbox" checked="true" />
