@@ -7,11 +7,7 @@ const MainScreen = ({user}) => {
     const [red_component, setRedComponent] = useState(-1)
     const [analysis, setAnalysis] = useState(false)
     let med_redact = med.filter(item => item.number === red_component)[0]
-    const [form_med, setFormMed] = useState({
-        amount: med_redact.amount,
-        amountMerc: med_redact.amountMerc,
-        address: med_redact.address,
-    })
+    const [form_med, setFormMed] = useState('')
 
     useEffect(
         () => {
@@ -83,7 +79,15 @@ const MainScreen = ({user}) => {
         );
     }else{
         
-        
+        setFormMed(
+            {
+                amount: med_redact.amount,
+                amountMerc: med_redact.amountMerc,
+                address: med_redact.address,
+            }
+        )
+
+
         if(med_redact.analysis === "Да") {
             setAnalysis(true)
         }
