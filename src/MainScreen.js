@@ -78,27 +78,28 @@ const MainScreen = ({user}) => {
             </div>
         );
     }else{
-        alert("начало")
-        med_redact = med.filter(item => item.number === red_component)[0]
-        alert("выбор компонента")
-        setFormMed(
-            {
-                amount: med_redact.amount,
-                amountMerc: med_redact.amountMerc,
-                address: med_redact.address,
-            }
-        )
-        alert("Установка свойств 1")
+        useEffect(
+            () => {
+                med_redact = med.filter(item => item.number === red_component)[0]
+                setFormMed(
+                    {
+                        amount: med_redact.amount,
+                        amountMerc: med_redact.amountMerc,
+                        address: med_redact.address,
+                    }
+                )
 
-        if(med_redact.analysis === "Да") {
-            setAnalysis(true)
-        }
+                if(med_redact.analysis === "Да") {
+                    setAnalysis(true)
+                }
+                
+            }, []
+        )
+        
+        
         const check_click = () => {
             setAnalysis(!analysis)
         }
-        alert("Установка свойств 2")
-        
-
         const handleChange = (e) => {
             const { name, value } = e.target;
             setFormMed({
@@ -106,7 +107,6 @@ const MainScreen = ({user}) => {
                 [name]: value,
             });
         };
-        alert("отрисовка")
         return (
             <div className="wrapper">
                 <div className="name-screen">Редактировать</div>
