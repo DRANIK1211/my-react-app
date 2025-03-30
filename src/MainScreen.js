@@ -76,7 +76,7 @@ const MainScreen = ({user}) => {
             </div>
         );
     }else{
-        let med_redact = med.filter(item => item.number === red_component)
+        let med_redact = med.filter(item => item.number === red_component)[0]
         let analysis = ""
         if(med_redact.analysis === "Да") {
             analysis = <input class="check" type="checkbox" checked="true" />
