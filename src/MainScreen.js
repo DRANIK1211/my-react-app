@@ -83,7 +83,6 @@ const MainScreen = ({user}) => {
         }else{
             analysis = <input class="check" type="checkbox" />
         }
-        alert(med_redact.number)
         return (
             <div className="wrapper">
                 <div className="name-screen">Редактировать</div>
@@ -91,25 +90,25 @@ const MainScreen = ({user}) => {
                 <div className="block">
                     <div className="name-block">Наименование</div>
                     <div className="input-block">
-                        <input type="text" />
+                        <input type="text" value={med_redact.name} readonly/>
                     </div>
                 </div>
                 <div className="block">
                     <div className="name-block">Количество (в килограммах)</div>
                     <div className="input-block">
-                        <input type="text" />
+                        <input type="text" value={med_redact.amount}/>
                     </div>
                 </div>
                 <div className="block">
                     <div className="name-block">Количество с меркурием (в килограммах)</div>
                     <div className="input-block">
-                        <input type="text" />
+                        <input type="text" value={med_redact.amountMerc}/>
                     </div>
                 </div>
                 <div className="block">
                     <div className="name-block">Местонахождение мёда (Область, город)</div>
                     <div className="input-block">
-                        <input type="text" />
+                        <input type="text" value={med_redact.address}/>
                     </div>
                 </div>
                 <label class="check-block">
