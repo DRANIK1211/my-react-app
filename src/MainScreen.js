@@ -77,12 +77,28 @@ const MainScreen = ({user}) => {
         );
     }else{
         let med_redact = med.filter(item => item.number === red_component)[0]
-        let analysis = ""
+        const [analysis, setAnalysis] = useState(false)
         if(med_redact.analysis === "Да") {
-            analysis = <input class="check" type="checkbox" checked="true" />
-        }else{
-            analysis = <input class="check" type="checkbox" />
+            setAnalysis(true)
         }
+        const check_click = () => {
+            setAnalysis(!analysis)
+        }
+
+        const [form_med, setFormMed] = useState({
+            amount: med_redact.amount,
+            amountMerc: med_redact.amountMerc,
+            address: med_redact.address,
+        })
+
+        const handleChange = (e) => {
+            const { name, value } = e.target;
+            setFormMed({
+                ...form_med,
+                [name]: value,
+            });
+        };
+
         return (
             <div className="wrapper">
                 <div className="name-screen">Редактировать</div>
@@ -96,23 +112,23 @@ const MainScreen = ({user}) => {
                 <div className="block">
                     <div className="name-block">Количество (в килограммах)</div>
                     <div className="input-block">
-                        <input type="text" value={med_redact.amount}/>
+                        <input type="text" value={med_redact.amount} onChange={handleChange}/>
                     </div>
                 </div>
                 <div className="block">
                     <div className="name-block">Количество с меркурием (в килограммах)</div>
                     <div className="input-block">
-                        <input type="text" value={med_redact.amountMerc}/>
+                        <input type="text" value={med_redact.amountMerc} onChange={handleChange}/>
                     </div>
                 </div>
                 <div className="block">
                     <div className="name-block">Местонахождение мёда (Область, город)</div>
                     <div className="input-block">
-                        <input type="text" value={med_redact.address}/>
+                        <input type="text" value={med_redact.address} onChange={handleChange}/>
                     </div>
                 </div>
                 <label class="check-block">
-                    {analysis}
+                    <input class="check" type="checkbox" checked={analysis} onChange={check_click} />
                     <span class="custom-check"></span>
                     <div class="check-name">Есть пыльцевой анализ</div> 
                 </label>
