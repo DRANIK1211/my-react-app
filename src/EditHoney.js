@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import styles from './style/EditHoney.css'; // Импорт стилей
+import './style/EditHoney.css'; // Импорт стилей
 import UserService from './data';
 
 const EditHoney = ({ honeyData, onSaveSuccess }) => {
