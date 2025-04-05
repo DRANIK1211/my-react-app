@@ -44,69 +44,6 @@ const EditHoney = ({ honeyData, onSaveSuccess }) => {
     )
     onSaveSuccess()
   };
-
-//   return (
-//     <div className={styles.editHoneyContainer}>
-      
-//       <form onSubmit={handleSubmit}>
-//         <div className={styles.formGroup}>
-//           <label>Наименование</label>
-//           <input 
-//             type="text" 
-//             value={initialData.name} 
-//             readOnly 
-//           />
-//         </div>
-        
-//         <div className={styles.formGroup}>
-//           <label>Количество (в килограммах)</label>
-//           <input 
-//             type="number" 
-//             name="amount"
-//             value={formData.amount} 
-//             onChange={handleInputChange}
-//             required
-//           />
-//         </div>
-        
-//         <div className={styles.formGroup}>
-//           <label>Количество с меркурием (в килограммах)</label>
-//           <input 
-//             type="number" 
-//             name="amountMerc"
-//             value={formData.amountMerc} 
-//             onChange={handleInputChange}
-//             required
-//           />
-//         </div>
-        
-//         <div className={styles.formGroup}>
-//           <label>Местонахождение мёда (Область, город)</label>
-//           <input 
-//             type="text" 
-//             name="address"
-//             value={formData.address} 
-//             onChange={handleInputChange}
-//             required
-//           />
-//         </div>
-        
-//         <div className={`${styles.formGroup} ${styles.checkbox}`}>
-//           <label>
-//             <input 
-//               type="checkbox" 
-//               name="analysis"
-//               checked={formData.analysis} 
-//               onChange={handleInputChange}
-//             />
-//             Есть пыльцевой анализ
-//           </label>
-//         </div>
-        
-//         <button type="submit" className={styles.saveButton}>Сохранить</button>
-//       </form>
-//     </div>
-//   );
     return (
         <div className="wrapper">
             <div className="name-screen">Редактировать</div>
