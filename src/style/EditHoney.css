@@ -1,0 +1,91 @@
+.editHoneyContainer {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    color: #333;
+  }
+  
+  .header {
+    color: #d32f2f; /* Красный цвет как в "Майл Red" */
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .navigation {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 30px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .navigation span {
+    cursor: pointer;
+    padding: 5px 10px;
+    color: #555;
+  }
+  
+  .navigation span:hover {
+    color: #d32f2f;
+  }
+  
+  .formGroup {
+    margin-bottom: 20px;
+  }
+  
+  .formGroup label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+  }
+  
+  .formGroup input[type="text"],
+  .formGroup input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+  }
+  
+  .formGroup input[type="text"]:focus,
+  .formGroup input[type="number"]:focus {
+    border-color: #d32f2f;
+    outline: none;
+  }
+  
+  .formGroup input[readonly] {
+    background-color: #f5f5f5;
+    cursor: not-allowed;
+  }
+  
+  .checkbox {
+    display: flex;
+    align-items: center;
+  }
+  
+  .checkbox input {
+    margin-right: 10px;
+    width: 18px;
+    height: 18px;
+  }
+  
+  .saveButton {
+    background-color: #d32f2f;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 20px;
+    transition: background-color 0.3s;
+  }
+  
+  .saveButton:hover {
+    background-color: #b71c1c;
+  }
