@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import UserService from "./data";
 import EditHoney from "./EditHoney";
-import AddHoney from "./addHoney";
+import AddHoney from "./AddHoney";
 
 const MainScreen = ({user}) => {
 
