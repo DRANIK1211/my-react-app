@@ -7,23 +7,25 @@ const MainScreen = ({user}) => {
     const [med, setMed] = useState("")
     const [red_component, setRedComponent] = useState(-1)
 
-
-    useEffect(
-        () => {
-          const userService = new UserService("https://andreydrughinin.pythonanywhere.com");
+    const getMed = () => {
+        const userService = new UserService("https://andreydrughinin.pythonanywhere.com");
           userService.getMed(user.id)
           .then(
             (res) => {
               setMed(res)
             }
           )
-    
-        }, [user]
+    }
+    useEffect(
+        ()=> {getMed()}, [user]
     )
 
 
 
-
+    const redOk = ()=>{
+        setRedComponent(-1)
+        getMed()
+    }
     const del = (num)=>{
         const userService = new UserService("https://andreydrughinin.pythonanywhere.com");
         userService.delMed(num)
@@ -79,7 +81,7 @@ const MainScreen = ({user}) => {
             </div>
         );
     }else{
-        return <EditHoney onSaveSuccess={()=>setRedComponent(-1)} honeyData={[med.find(honey => honey.number === red_component)]}/>
+        return <EditHoney onSaveSuccess={()=>redOk()} honeyData={[med.find(honey => honey.number === red_component)]}/>
     }
     
 }
