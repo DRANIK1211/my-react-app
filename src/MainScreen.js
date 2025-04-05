@@ -96,7 +96,7 @@ const MainScreen = ({user}) => {
     }else if(red_component !== -1){
         return <EditHoney onSaveSuccess={()=>redOk()} honeyData={[med.find(honey => honey.number === red_component)]}/>
     }else if((add_component !== -1)){
-        return <AddHoney ok={()=>addOk()} />
+        return <AddHoney ok={()=>addOk()} user={user} />
     }
     
 }

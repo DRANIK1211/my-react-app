@@ -43,6 +43,17 @@ class UserService {
         }
     }
 
+    // Метод для добавления мёда
+    async addMed(id, name, amount, amountMerc, address, analysis, date) {
+        try {
+            const response = await this.apiClient.get(`/addMed/${id}/${name}/${amount}/${amountMerc}/${address}/${analysis}/${date}`);
+            return response.data; // Возвращаем данные в формате JSON
+        } catch (error) {
+            console.error('Ошибка при добавлении:', error);
+            throw error; // Пробрасываем ошибку дальше
+        }
+    }
+
     // Удаление мёда
     async delMed(number){
         try{

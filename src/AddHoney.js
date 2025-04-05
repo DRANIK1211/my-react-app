@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import './style/AddHoney.css'; // Импорт стилей
+import UserService from './data';
 
-const AddHoney = ({ ok }) => {
+const AddHoney = ({ ok, user }) => {
 
     const med_list = ["Гречишный", "Темное разнотравье с гречихой", "Горный", "Дягилевый", "Рапсовый", "Светлое разнотравье с посевными"]
     const [selectedHoney, setSelectedHoney] = useState('--Не выбрано--');
@@ -12,7 +13,7 @@ const AddHoney = ({ ok }) => {
         amountMerc: 0,
         analysis: "Нет",
         date: new Date().toLocaleDateString('ru-RU'),
-        id: 0,
+        id: user.id,
         name: "",
         number: 0
     };
@@ -28,6 +29,17 @@ const AddHoney = ({ ok }) => {
         setSelectedHoney(event.target.value);
     };
     const handleSubmit = () => {
+
+        const userService = new UserService("https://andreydrughinin.pythonanywhere.com")
+        userService.addMed(
+            initialData.id,
+            initialData.name,
+            formData.amount,
+            formData.amountMerc,
+            formData.address,
+            formData.analysis ? "Да" : "Нет",
+            initialData.date
+        )
         ok()
     }
     const handleInputChange = (e) => {
