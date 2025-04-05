@@ -79,7 +79,7 @@ const MainScreen = ({user}) => {
             </div>
         );
     }else{
-        <EditHoney onSaveSuccess={()=>setRedComponent(-1)} honeyData={med.find(honey=>honey.number === red_component)}/>
+        return <EditHoney onSaveSuccess={()=>setRedComponent(-1)} honeyData={[med.find(honey => honey.number === red_component)]}/>
     }
     
 }
