@@ -9,15 +9,23 @@ const MainScreen = ({user}) => {
 
     const getMed = () => {
         const userService = new UserService("https://andreydrughinin.pythonanywhere.com");
-          userService.getMed(user.id)
-          .then(
+        userService.getMed(user.id)
+        .then(
             (res) => {
-              setMed(res)
+                setMed(res)
             }
-          )
+        )
     }
     useEffect(
-        ()=> {getMed()}, [user]
+        ()=> {
+            const userService = new UserService("https://andreydrughinin.pythonanywhere.com");
+            userService.getMed(user.id)
+            .then(
+                (res) => {
+                    setMed(res)
+                }
+            )
+        }, [user]
     )
 
 
