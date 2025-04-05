@@ -33,7 +33,7 @@ const AddHoney = ({ ok, user }) => {
         const userService = new UserService("https://andreydrughinin.pythonanywhere.com")
         userService.addMed(
             initialData.id,
-            initialData.name,
+            selectedHoney,
             formData.amount,
             formData.amountMerc,
             formData.address,
