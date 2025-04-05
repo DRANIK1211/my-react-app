@@ -16,10 +16,11 @@ const AddHoney = ({ ok }) => {
         <div className="wrapper">
             <div className="name-screen">Добавить мёд</div>
             <form onSubmit={handleSubmit}>
-                <div className='block-select'>
+                <div className='input-block'>
                     <select
                         value={selectedHoney}
                         onChange={handleChange}
+                        className="select-name"
                     >
                         {
                             med_list.map(opt => <option value={opt}>{opt}</option>)
