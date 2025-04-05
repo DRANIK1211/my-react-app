@@ -5,6 +5,25 @@ const AddHoney = ({ ok }) => {
 
     const med_list = ["Гречишный", "Темное разнотравье с гречихой", "Горный", "Дягилевый", "Рапсовый", "Светлое разнотравье с посевными"]
     const [selectedHoney, setSelectedHoney] = useState('--Не выбрано--');
+
+    const initialData = {
+        address: "",
+        amount: 0,
+        amountMerc: 0,
+        analysis: "Нет",
+        date: new Date().toLocaleDateString('ru-RU'),
+        id: 0,
+        name: "",
+        number: 0
+    };
+    
+    const [formData, setFormData] = useState({
+        amount: initialData.amount,
+        amountMerc: initialData.amountMerc,
+        address: initialData.address,
+        analysis: initialData.analysis === "Да"
+    });
+
     const handleChangeName = (event) => {
         setSelectedHoney(event.target.value);
     };
@@ -17,7 +36,7 @@ const AddHoney = ({ ok }) => {
           ...prev,
           [name]: type === 'checkbox' ? checked : value
         }));
-      };
+    };
 
     return (
         <div className="wrapper">
