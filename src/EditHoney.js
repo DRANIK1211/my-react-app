@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import UserService, { UserService } from './data';
 import styles from './style/EditHoney.css'; // Импорт стилей
+import UserService from './data';
 
 const EditHoney = ({ honeyData, onSaveSuccess }) => {
   const initialData = honeyData[0] || {
@@ -31,7 +31,7 @@ const EditHoney = ({ honeyData, onSaveSuccess }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const UserService = new UserService("https://andreydrughinin.pythonanywhere.com")
+    const UserService = new UserService("https://andreydrughinin.pythonanywhere.com");
     UserService.redMed(
         initialData.number,
         initialData.name,
