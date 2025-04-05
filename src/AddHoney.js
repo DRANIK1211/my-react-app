@@ -4,7 +4,7 @@ import UserService from './data';
 
 const AddHoney = ({ ok, user }) => {
 
-    const med_list = ["Гречишный", "Темное разнотравье с гречихой", "Горный", "Дягилевый", "Рапсовый", "Светлое разнотравье с посевными"]
+    const med_list = ['--Не выбрано--', "Гречишный", "Темное разнотравье с гречихой", "Горный", "Дягилевый", "Рапсовый", "Светлое разнотравье с посевными"]
     const [selectedHoney, setSelectedHoney] = useState('--Не выбрано--');
 
     const initialData = {
@@ -29,7 +29,10 @@ const AddHoney = ({ ok, user }) => {
         setSelectedHoney(event.target.value);
     };
     const handleSubmit = () => {
-
+        if(selectedHoney === '--Не выбрано--'){
+            alert("Выберете тип мёда")
+            return 0;
+        }
         const userService = new UserService("https://andreydrughinin.pythonanywhere.com")
         userService.addMed(
             initialData.id,
