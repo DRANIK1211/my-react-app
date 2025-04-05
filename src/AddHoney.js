@@ -38,7 +38,7 @@ const AddHoney = ({ ok, user }) => {
             formData.amountMerc,
             formData.address,
             formData.analysis ? "Да" : "Нет",
-            initialData.date
+            String(initialData.date)
         )
         ok()
     }

@@ -40,7 +40,7 @@ const EditHoney = ({ honeyData, onSaveSuccess }) => {
         formData.amountMerc,
         formData.address,
         formData.analysis ? "Да" : "Нет",
-        initialData.date
+        String(initialData.date)
     )
     onSaveSuccess()
   };
