@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from "react";
 import UserService from "./data";
 import EditHoney from "./EditHoney";
+import AddHoney from "./addHoney";
 
 const MainScreen = ({user}) => {
 
     const [med, setMed] = useState("")
     const [red_component, setRedComponent] = useState(-1)
+    const [add_component, setAddComponent] = useState(-1)
 
     const getMed = () => {
         const userService = new UserService("https://andreydrughinin.pythonanywhere.com");
@@ -32,6 +34,10 @@ const MainScreen = ({user}) => {
 
     const redOk = ()=>{
         setRedComponent(-1)
+        getMed()
+    }
+    const addOk = () => {
+        setAddComponent(-1)
         getMed()
     }
     const del = (num)=>{
@@ -68,9 +74,8 @@ const MainScreen = ({user}) => {
         })
     }
 
-
     
-    if(red_component === -1){
+    if((red_component === -1) && (add_component === -1)){
         return(
             <div className="content main">
                 <div className="main-text">Ваши меда</div>
@@ -88,8 +93,10 @@ const MainScreen = ({user}) => {
                 </div>
             </div>
         );
-    }else{
+    }else if(red_component !== -1){
         return <EditHoney onSaveSuccess={()=>redOk()} honeyData={[med.find(honey => honey.number === red_component)]}/>
+    }else if((add_component !== -1)){
+        return <AddHoney ok={()=>addOk()} />
     }
     
 }

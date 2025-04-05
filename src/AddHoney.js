@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './style/AddHoney.css'; // Импорт стилей
 
-const AddHoney = ({  }) => {
+const AddHoney = ({ ok }) => {
 
     const med_list = ["Гречишный", "Темное разнотравье с гречихой", "Горный", "Дягилевый", "Рапсовый", "Светлое разнотравье с посевными"]
     const [selectedHoney, setSelectedHoney] = useState('--Не выбрано--');
@@ -9,7 +9,7 @@ const AddHoney = ({  }) => {
         setSelectedHoney(event.target.value);
     };
     const handleSubmit = () => {
-
+        ok()
     }
 
     return (
@@ -31,4 +31,4 @@ const AddHoney = ({  }) => {
     )        
 };
 
-export default EditHoney;
+export default AddHoney;
