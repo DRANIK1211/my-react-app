@@ -30,6 +30,7 @@ const EditHoney = ({ honeyData, onSaveSuccess }) => {
   };
 
   const handleSubmit = async (e) => {
+    e.preventDefault();
     const UserService = new UserService("https://andreydrughinin.pythonanywhere.com")
     UserService.redMed(
         initialData.number,
