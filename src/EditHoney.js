@@ -132,7 +132,7 @@ const EditHoney = ({ honeyData, onSaveSuccess }) => {
                 <div className="block">
                     <div className="name-block">Местонахождение мёда (Область, город)</div>
                     <div className="input-block">
-                        <input type="number" name="address" value={formData.address} onChange={handleInputChange} required />
+                        <input type="text" name="address" value={formData.address} onChange={handleInputChange} required />
                     </div>
                 </div>
                 
