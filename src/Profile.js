@@ -47,7 +47,33 @@ const ProfileScreen = () => {
         if(red){
             setRed(false)
         }else{
+            if(formData.username === "" | formData.number === ""){
+                alert("Заполните все поля")
+                return 0;
+            }
+            const userService = new UserService("https://andreydrughinin.pythonanywhere.com")
+            userService.redUser(
+                user.id,
+                formData.username,
+                formData.number
+            )
+            
             setRed(true)
+
+            setLoad(false)
+            userService.getUser(user.id)
+            .then(
+                (res)=>{
+                    setName(res[0].username)
+                    setNumber(res[0].number)
+                    setLoad(true)
+                }
+            ).catch(
+                (err)=>{
+                    alert("Ошибка: " + err)
+                }
+            )
+            setLoad(true)
         }
     }
 
