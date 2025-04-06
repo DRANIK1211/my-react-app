@@ -3,7 +3,6 @@ import UserService from "./data";
 import "./style/Profile.css"
 
 const ProfileScreen = ({ user }) => {
-    const [User, setUser] = useState(user)
     const [name, setName] = useState(null)
     const [number, setNumber] = useState(null)
     const [load, setLoad] = useState(false)
@@ -17,7 +16,7 @@ const ProfileScreen = ({ user }) => {
         ()=>{
             
             const userService = new UserService("https://andreydrughinin.pythonanywhere.com")
-            userService.getUser(User.id)
+            userService.getUser(user.id)
             .then(
                 (res)=>{
                     setName(res.username)
@@ -31,7 +30,7 @@ const ProfileScreen = ({ user }) => {
             )
             
             
-        }, [User]
+        }, [user]
     )
 
     const handleChange = (e) => {
