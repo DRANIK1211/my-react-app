@@ -30,12 +30,14 @@
 }
 .main{
     width: 100%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
 }
 
 .main-text{
     margin-top: 20px;
     margin-bottom: 15px;
-    width: 100%;
     text-align: center;
 }
 
