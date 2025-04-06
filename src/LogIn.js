@@ -22,6 +22,10 @@ const LogIn = ({user}) => {
 
 
     const handleSubmit = (e) => {
+        if(formData.number ==="" | formData.username==="" | formData.code !== "1111"){
+            alert("Корректно заполните все поля")
+            return 0;
+        }
         e.preventDefault()
         const userService = new UserService("https://andreydrughinin.pythonanywhere.com");
         userService.addUser(user.id, formData.number, user.username, formData.username)

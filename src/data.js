@@ -75,6 +75,17 @@ class UserService {
             throw error; // Пробрасываем ошибку дальше
         }
     }
+
+    //Регистрация
+    async redUser(id, username, number){
+        try{
+            const response = await this.apiClient.get(`/redUser/${id}/${username}/${number}`)
+            return response.data
+        } catch(error){
+            console.error('Ошибка при редактировании:', error);
+            throw error; // Пробрасываем ошибку дальше
+        }
+    }
 }
 
 export default UserService;

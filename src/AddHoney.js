@@ -33,6 +33,10 @@ const AddHoney = ({ ok, user }) => {
             alert("Выберете тип мёда")
             return 0;
         }
+        if(formData.amount === "" | formData.amountMerc === "" | formData.address === ""){
+            alert("Заполните все поля")
+            return 0;
+        }
         const userService = new UserService("https://andreydrughinin.pythonanywhere.com")
         userService.addMed(
             initialData.id,

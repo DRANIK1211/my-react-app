@@ -31,6 +31,10 @@ const EditHoney = ({ honeyData, onSaveSuccess }) => {
   };
 
   const handleSubmit = async (e) => {
+    if(initialData.name === "" | formData.amount === "" | formData.amountMerc === "" | formData.address === ""){
+        alert("Заполните все поля")
+        return 0;
+    }
     e.preventDefault();
     const userService = new UserService("https://andreydrughinin.pythonanywhere.com")
     userService.redMed(
