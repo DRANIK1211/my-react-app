@@ -7,6 +7,7 @@ const AddHoney = ({ ok, user }) => {
     const med_list = ['--Не выбрано--', "Гречишный", "Темное разнотравье с гречихой", "Горный", "Дягилевый", "Рапсовый", "Светлое разнотравье с посевными"]
     const [selectedHoney, setSelectedHoney] = useState('--Не выбрано--');
 
+
     const initialData = {
         address: "",
         amount: 0,
@@ -38,8 +39,19 @@ const AddHoney = ({ ok, user }) => {
             return 0;
         }
         const userService = new UserService("https://andreydrughinin.pythonanywhere.com")
+        let reestr = 0
+        userService.getUser(user.id)
+        .then(
+            (r)=>{
+                reestr = res[0].number
+            }
+        ).catch(
+            (e)=>{
+                alert("Ошибка: " + e)
+            }
+        )
         userService.addMed(
-            initialData.id,
+            reestr,
             selectedHoney,
             formData.amount,
             formData.amountMerc,
