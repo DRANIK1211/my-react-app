@@ -92,7 +92,7 @@ const ProfileScreen = () => {
                     <div className="block1">
                         <div className="block-name1">ФИО:</div>
                         <div className="block-input1">
-                            <input type="text" name="name" value={formData.username} readOnly={red} onChange={handleChange} />
+                            <input type="text" name="username" value={formData.username} readOnly={red} onChange={handleChange} />
                         </div>
                     </div>
                     <div className="block1">
