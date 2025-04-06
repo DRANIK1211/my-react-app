@@ -11,21 +11,30 @@ const MainScreen = ({user}) => {
 
     const getMed = () => {
         const userService = new UserService("https://andreydrughinin.pythonanywhere.com");
-        userService.getMed(user.id)
+        userService.getUser(user.id)
         .then(
-            (res) => {
-                setMed(res)
+            (r)=>{
+                userService.getMed(r[0].number)
+                .then(
+                    (res) => {
+                        setMed(res)
+                    }
+                )
             }
         )
     }
     useEffect(
         ()=> {
             const userService = new UserService("https://andreydrughinin.pythonanywhere.com");
-            // СДЕЛАТЬ НОМЕР РЕЕСТРА
-            userService.getMed(user.id)
+            userService.getUser(user.id)
             .then(
-                (res) => {
-                    setMed(res)
+                (r)=>{
+                    userService.getMed(r[0].number)
+                    .then(
+                        (res) => {
+                            setMed(res)
+                        }
+                    )
                 }
             )
         }, [user]
