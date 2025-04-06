@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import UserService from "./data";
-import "Profile.css"
+import "./style/Profile.css"
 
 const ProfileScreen = ({ user }) => {
 
