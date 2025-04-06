@@ -90,13 +90,13 @@ const ProfileScreen = () => {
                     <div className="block1">
                         <div className="block-name1">ФИО:</div>
                         <div className="block-input1">
-                            <input type="text" name="name" value={name} readOnly={red} onChange={handleChange} />
+                            <input type="text" name="name" value={formData.username} readOnly={red} onChange={handleChange} />
                         </div>
                     </div>
                     <div className="block1">
                         <div className="block-name1">Номер реестра:</div>
                         <div className="block-input1">
-                            <input type="text" name="number" value={number} readOnly={red} onChange={handleChange} />
+                            <input type="text" name="number" value={formData.number} readOnly={red} onChange={handleChange} />
                         </div>
                     </div>
                     <button type="submit" className="btn1">{red ? "Редактировать" : "Сохранить"}</button>
