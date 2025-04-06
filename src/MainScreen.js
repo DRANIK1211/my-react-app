@@ -21,6 +21,7 @@ const MainScreen = ({user}) => {
     useEffect(
         ()=> {
             const userService = new UserService("https://andreydrughinin.pythonanywhere.com");
+            // СДЕЛАТЬ НОМЕР РЕЕСТРА
             userService.getMed(user.id)
             .then(
                 (res) => {

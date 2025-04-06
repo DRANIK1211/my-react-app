@@ -6,6 +6,7 @@ const AddHoney = ({ ok, user }) => {
 
     const med_list = ['--Не выбрано--', "Гречишный", "Темное разнотравье с гречихой", "Горный", "Дягилевый", "Рапсовый", "Светлое разнотравье с посевными"]
     const [selectedHoney, setSelectedHoney] = useState('--Не выбрано--');
+    
 
 
     const initialData = {
@@ -40,16 +41,20 @@ const AddHoney = ({ ok, user }) => {
         }
         const userService = new UserService("https://andreydrughinin.pythonanywhere.com")
         let reestr = 0
+        alert(reestr)
         userService.getUser(user.id)
         .then(
             (r)=>{
                 reestr = r[0].number
+                alert(r[0].number)
+                alert(reestr)
             }
         ).catch(
             (e)=>{
                 alert("Ошибка: " + e)
             }
         )
+        alert(reestr)
         userService.addMed(
             reestr,
             selectedHoney,
