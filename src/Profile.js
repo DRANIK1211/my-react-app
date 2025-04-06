@@ -9,8 +9,8 @@ const ProfileScreen = () => {
     const [red, setRed] = useState(true)
     const user = window.Telegram.WebApp.initDataUnsafe.user
     const [formData, setFormData] = useState({
-        number: number,
-        username: name,
+        number: "",
+        username: "",
     });
 
     useEffect(
@@ -20,12 +20,10 @@ const ProfileScreen = () => {
             userService.getUser(user.id)
             .then(
                 (res)=>{
-                    setFormData(
-                        res[0].number,
-                        res[0].username
-                    )
-                    setName(res[0].username)
-                    setNumber(res[0].number)
+                    setFormData({
+                        number: res[0].number,
+                        username: res[0].username
+                    })
                     setLoad(true)
                 }
             ).catch(
