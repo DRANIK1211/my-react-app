@@ -3,35 +3,35 @@ import UserService from "./data";
 import "./style/Profile.css"
 
 const ProfileScreen = ({ user }) => {
-
+    const [User, setUser] = useState(user)
     const [name, setName] = useState(null)
     const [number, setNumber] = useState(null)
     const [load, setLoad] = useState(false)
     const [red, setRed] = useState(true)
     const [formData, setFormData] = useState({
-        number: '',
-        username: '',
+        number: number,
+        username: name,
     });
 
     useEffect(
         ()=>{
-            if(red) {
-                const userService = new UserService("https://andreydrughinin.pythonanywhere.com")
-                userService.getUser(user.id)
-                .then(
-                    (res)=>{
-                        setName(res.username)
-                        setNumber(res.number)
-                        setLoad(true)
-                    }
-                ).catch(
-                    (err)=>{
-                        alert("Ошибка: " + err)
-                    }
-                )
-            }
             
-        }, [red, user]
+            const userService = new UserService("https://andreydrughinin.pythonanywhere.com")
+            userService.getUser(User.id)
+            .then(
+                (res)=>{
+                    setName(res.username)
+                    setNumber(res.number)
+                    setLoad(true)
+                }
+            ).catch(
+                (err)=>{
+                    alert("Ошибка: " + err)
+                }
+            )
+            
+            
+        }, [User]
     )
 
     const handleChange = (e) => {
@@ -74,13 +74,13 @@ const ProfileScreen = ({ user }) => {
                     <div className="block1">
                         <div className="block-name1">ФИО:</div>
                         <div className="block-input1">
-                            <input type="text" name="name" value={name} readOnly={red} onChange={handleChange} />
+                            <input type="text" name="name" value={formData.username} readOnly={red} onChange={handleChange} />
                         </div>
                     </div>
                     <div className="block1">
                         <div className="block-name1">Номер реестра:</div>
                         <div className="block-input1">
-                            <input type="text" name="number" value={number} readOnly={red} onChange={handleChange} />
+                            <input type="text" name="number" value={formData.number} readOnly={red} onChange={handleChange} />
                         </div>
                     </div>
                     <button type="submit" className="btn1">{red ? "Редактировать" : "Сохранить"}</button>
