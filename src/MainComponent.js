@@ -30,7 +30,7 @@ const MainComponent = ({user, num}) => {
           <div className='menu-button desactive' id="MainBut" onClick={activator}>Главная</div>
           <div className='menu-button' id="ProfileBut" onClick={activator}>Профиль</div>
         </div>
-        <ProfileScreen user={user} />
+        <ProfileScreen />
       </div>
     );
   }

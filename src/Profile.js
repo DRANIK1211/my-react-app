@@ -2,11 +2,12 @@ import React, { useEffect, useState } from "react";
 import UserService from "./data";
 import "./style/Profile.css"
 
-const ProfileScreen = ({ user }) => {
+const ProfileScreen = () => {
     const [name, setName] = useState(null)
     const [number, setNumber] = useState(null)
     const [load, setLoad] = useState(false)
     const [red, setRed] = useState(true)
+    const user = window.Telegram.WebApp.initDataUnsafe.user
     const [formData, setFormData] = useState({
         number: number,
         username: name,
@@ -41,21 +42,11 @@ const ProfileScreen = ({ user }) => {
         });
     };
 
-    const handleSubmit = () => {
+    const handleSubmit = (e) => {
+        e.preventDefault()
         if(red){
             setRed(false)
         }else{
-            if(formData.username === "" | formData.number === ""){
-                alert("Заполните все поля")
-                return 0;
-            }
-            const userService = new UserService("https://andreydrughinin.pythonanywhere.com")
-            userService.redUser(
-                user.id,
-                formData.username,
-                formData.number
-            )
-            setLoad(false)
             setRed(true)
         }
     }
