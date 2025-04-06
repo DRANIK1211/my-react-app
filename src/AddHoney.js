@@ -43,7 +43,7 @@ const AddHoney = ({ ok, user }) => {
         userService.getUser(user.id)
         .then(
             (r)=>{
-                reestr = res[0].number
+                reestr = r[0].number
             }
         ).catch(
             (e)=>{
