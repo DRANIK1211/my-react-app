@@ -40,30 +40,25 @@ const AddHoney = ({ ok, user }) => {
             return 0;
         }
         const userService = new UserService("https://andreydrughinin.pythonanywhere.com")
-        let reestr = 0
-        alert(reestr)
         userService.getUser(user.id)
         .then(
             (r)=>{
-                reestr = r[0].number
-                alert(r[0].number)
-                alert(reestr)
+                userService.addMed(
+                    r[0].number,
+                    selectedHoney,
+                    formData.amount,
+                    formData.amountMerc,
+                    formData.address,
+                    formData.analysis ? "Да" : "Нет",
+                    String(initialData.date)
+                )
             }
         ).catch(
             (e)=>{
                 alert("Ошибка: " + e)
             }
         )
-        alert(reestr)
-        userService.addMed(
-            reestr,
-            selectedHoney,
-            formData.amount,
-            formData.amountMerc,
-            formData.address,
-            formData.analysis ? "Да" : "Нет",
-            String(initialData.date)
-        )
+        
         ok()
     }
     const handleInputChange = (e) => {
