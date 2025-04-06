@@ -31,7 +31,7 @@ const ProfileScreen = ({ user }) => {
                 )
             }
             
-        }, [red]
+        }, [red, user]
     )
 
     const handleChange = (e) => {
