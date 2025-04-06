@@ -67,23 +67,23 @@ const ProfileScreen = ({ user }) => {
         )
     }
     return (
-        <div className="content">
-            <div className="form">
-                <div className="name-screen">{red ? "Профиль" : "Редактирование профиля"}</div>
+        <div className="content1">
+            <div className="form1">
+                <div className="name-screen1">{red ? "Профиль" : "Редактирование профиля"}</div>
                 <form onSubmit={handleSubmit}>
-                    <div className="block">
-                        <div className="block-name">ФИО:</div>
-                        <div className="block-input">
+                    <div className="block1">
+                        <div className="block-name1">ФИО:</div>
+                        <div className="block-input1">
                             <input type="text" name="name" value={name} readOnly={red} onChange={handleChange} />
                         </div>
                     </div>
-                    <div className="block">
-                        <div className="block-name">Номер реестра:</div>
-                        <div className="block-input">
+                    <div className="block1">
+                        <div className="block-name1">Номер реестра:</div>
+                        <div className="block-input1">
                             <input type="text" name="number" value={number} readOnly={red} onChange={handleChange} />
                         </div>
                     </div>
-                    <button type="submit" className="btn">{red ? "Редактировать" : "Сохранить"}</button>
+                    <button type="submit" className="btn1">{red ? "Редактировать" : "Сохранить"}</button>
                 </form>
             </div>
         </div>
