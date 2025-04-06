@@ -20,8 +20,8 @@ const ProfileScreen = () => {
             userService.getUser(user.id)
             .then(
                 (res)=>{
-                    setName(res.username)
-                    setNumber(res.number)
+                    setName(res[0].username)
+                    setNumber(res[0].number)
                     setLoad(true)
                 }
             ).catch(
