@@ -89,7 +89,7 @@ const MainScreen = ({user}) => {
                 </div>
                 
                 <div className="add-med">
-                    <div className="add-text" onClick={()=>setAddComponent(1)}>+</div>
+                    <div className="add-text" onClick={()=>setAddComponent(1)}>Добавить мёд</div>
                 </div>
             </div>
         );
