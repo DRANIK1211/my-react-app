@@ -19,8 +19,8 @@ function App() {
           if(Array.isArray(res) && res.length > 0){
             setUserData(user)
             setLog(true)
-            setLoad(true)
           }
+          setLoad(true)
         }
       )
 
