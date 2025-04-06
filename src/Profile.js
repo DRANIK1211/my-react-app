@@ -3,8 +3,6 @@ import UserService from "./data";
 import "./style/Profile.css"
 
 const ProfileScreen = () => {
-    const [name, setName] = useState(null)
-    const [number, setNumber] = useState(null)
     const [load, setLoad] = useState(false)
     const [red, setRed] = useState(true)
     const user = window.Telegram.WebApp.initDataUnsafe.user
@@ -66,8 +64,10 @@ const ProfileScreen = () => {
             userService.getUser(user.id)
             .then(
                 (res)=>{
-                    setName(res[0].username)
-                    setNumber(res[0].number)
+                    setFormData({
+                        number: res[0].number,
+                        username: res[0].username
+                    })
                     setLoad(true)
                 }
             ).catch(
