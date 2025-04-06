@@ -55,7 +55,7 @@ const MainScreen = ({user}) => {
         )
     }
 
-    let medList = <div>Загрузка...</div>
+    let medList = <div></div>
     if (med.length > 0) {
         medList = med.map((i) => {
             return (
