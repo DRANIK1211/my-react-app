@@ -77,7 +77,7 @@ const MainScreen = ({user}) => {
     
     if((red_component === -1) && (add_component === -1)){
         return(
-            <div className="content main">
+            <div className="content">
                 <div className="main-text">Ваш мёд</div>
                 <div className="znak">
                     <div className="naim">Наименование</div>
