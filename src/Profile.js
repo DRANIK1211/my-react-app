@@ -20,6 +20,10 @@ const ProfileScreen = () => {
             userService.getUser(user.id)
             .then(
                 (res)=>{
+                    setFormData(
+                        res[0].number,
+                        res[0].username
+                    )
                     setName(res[0].username)
                     setNumber(res[0].number)
                     setLoad(true)
