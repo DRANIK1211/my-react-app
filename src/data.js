@@ -77,9 +77,9 @@ class UserService {
     }
 
     //Редактирование пользователя
-    async redUser(id, username, number){
+    async redUser(id, username, number, phone){
         try{
-            const response = await this.apiClient.get(`/redUser/${id}/${username}/${number}`)
+            const response = await this.apiClient.get(`/redUser/${id}/${username}/${number}/${phone}`)
             return response.data
         } catch(error){
             console.error('Ошибка при редактировании:', error);
