@@ -87,7 +87,20 @@ const AddHoney = ({ ok, user }) => {
                 <div className="block">
                     <div className="name-block">Количество (в килограммах)</div>
                     <div className="input-block">
-                        <input type="number" name="amount" value={formData.amount} onChange={handleInputChange} required />
+                        <input
+                            type="number" 
+                            name="amount" 
+                            value={formData.amount} 
+                            onChange={handleInputChange} 
+                            onKeyPress={
+                                (e) => {
+                                    if (e.key === 'Enter') {
+                                      e.preventDefault();
+                                      window.Telegram?.WebApp.hideKeyboard?.();
+                                    }
+                                  }
+                            } 
+                            required />
                     </div>
                 </div>
 
