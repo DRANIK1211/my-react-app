@@ -17,7 +17,7 @@ const EditHoney = ({ honeyData, onSaveSuccess }) => {
 
   const [formData, setFormData] = useState({
     amount: initialData.amount,
-    amountMerc: initialData.merc === "Да",
+    merc: initialData.merc === "Да",
     address: initialData.address,
     analysis: initialData.analysis === "Да"
   });
