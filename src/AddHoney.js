@@ -31,6 +31,7 @@ const AddHoney = ({ ok, user }) => {
         setSelectedHoney(event.target.value);
     };
     const handleSubmit = () => {
+        window.Telegram?.WebApp?.hideKeyboard?.();
         if(selectedHoney === '--Не выбрано--'){
             alert("Выберете тип мёда")
             return 0;
@@ -92,14 +93,7 @@ const AddHoney = ({ ok, user }) => {
                             name="amount" 
                             value={formData.amount} 
                             onChange={handleInputChange} 
-                            onKeyPress={
-                                (e) => {
-                                    if (e.key === "Enter" || e.keyCode === 13) {
-                                      e.preventDefault();
-                                      window.Telegram?.WebApp?.hideKeyboard?.();
-                                    }
-                                  }
-                            } 
+                            enterKeyHint="done"
                             required />
                     </div>
                 </div>
