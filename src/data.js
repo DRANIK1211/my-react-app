@@ -33,9 +33,9 @@ class UserService {
     }
 
     // Метод для редактирования медов
-    async redMed(number, name, amount, amountMerc, address, analysis, date) {
+    async redMed(number, name, amount, address, merc, analysis, date) {
         try {
-            const response = await this.apiClient.get(`/redMed/${number}/${name}/${amount}/${amountMerc}/${address}/${analysis}/${date}`);
+            const response = await this.apiClient.get(`/redMed/${number}/${name}/${amount}/${address}/${merc}/${analysis}/${date}`);
             return response.data; // Возвращаем данные в формате JSON
         } catch (error) {
             console.error('Ошибка при редактировании:', error);

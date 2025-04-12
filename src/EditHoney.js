@@ -7,7 +7,7 @@ const EditHoney = ({ honeyData, onSaveSuccess }) => {
   const initialData = honeyData[0] || {
     address: "",
     amount: 0,
-    amountMerc: 0,
+    merc: "Нет",
     analysis: "Нет",
     date: new Date().toLocaleDateString('ru-RU'),
     id: 0,
@@ -17,7 +17,7 @@ const EditHoney = ({ honeyData, onSaveSuccess }) => {
 
   const [formData, setFormData] = useState({
     amount: initialData.amount,
-    amountMerc: initialData.amountMerc,
+    amountMerc: initialData.merc === "Да",
     address: initialData.address,
     analysis: initialData.analysis === "Да"
   });
@@ -31,7 +31,7 @@ const EditHoney = ({ honeyData, onSaveSuccess }) => {
   };
 
   const handleSubmit = async (e) => {
-    if(initialData.name === "" | formData.amount === "" | formData.amountMerc === "" | formData.address === ""){
+    if(initialData.name === "" | formData.amount === "" | formData.address === ""){
         alert("Заполните все поля")
         return 0;
     }
@@ -41,7 +41,7 @@ const EditHoney = ({ honeyData, onSaveSuccess }) => {
         initialData.number,
         initialData.name,
         formData.amount,
-        formData.amountMerc,
+        formData.merc ? "Да" : "Нет",
         formData.address,
         formData.analysis ? "Да" : "Нет",
         String(initialData.date)
@@ -64,18 +64,26 @@ const EditHoney = ({ honeyData, onSaveSuccess }) => {
                         <input type="number" name="amount" value={formData.amount} onChange={handleInputChange} required />
                     </div>
                 </div>
-                <div className="block">
+
+                {/* <div className="block">
                     <div className="name-block">Количество с меркурием (в килограммах)</div>
                     <div className="input-block">
                         <input type="number" name="amountMerc" value={formData.amountMerc} onChange={handleInputChange} required />
                     </div>
-                </div>
+                </div> */}
+
                 <div className="block">
                     <div className="name-block">Местонахождение мёда (Область, город)</div>
                     <div className="input-block">
                         <input type="text" name="address" value={formData.address} onChange={handleInputChange} required />
                     </div>
                 </div>
+
+                <label className="check-block">
+                    <input className="check" type="checkbox" name='merc' checked={formData.merc} onChange={handleInputChange} />
+                    <span className="custom-check"></span>
+                    <div className="check-name">Есть меркурий</div>
+                </label>
                 
                 <label className="check-block">
                     <input className="check" type="checkbox" name='analysis' checked={formData.analysis} onChange={handleInputChange} />
