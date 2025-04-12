@@ -92,8 +92,7 @@ const AddHoney = ({ ok, user }) => {
                             type="number" 
                             name="amount" 
                             value={formData.amount} 
-                            onChange={handleInputChange} 
-                            enterKeyHint="done"
+                            onChange={handleInputChange}
                             required />
                     </div>
                 </div>
