@@ -94,9 +94,9 @@ const AddHoney = ({ ok, user }) => {
                             onChange={handleInputChange} 
                             onKeyPress={
                                 (e) => {
-                                    if (e.key === 'Enter') {
+                                    if (e.key === "Enter" || e.keyCode === 13) {
                                       e.preventDefault();
-                                      window.Telegram?.WebApp.hideKeyboard?.();
+                                      window.Telegram?.WebApp?.hideKeyboard?.();
                                     }
                                   }
                             } 
