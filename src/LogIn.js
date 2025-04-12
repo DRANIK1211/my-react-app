@@ -56,6 +56,7 @@ const LogIn = ({user}) => {
                     <input type='text' id="number" name="number" value={formData.number} onChange={handleChange} />
                 </div>
 
+
                 <div className='text'>Код регистрации:</div>
                 <div className='inputText'>
                     <input type='text' id="code" name="code" value={formData.code} onChange={handleChange} />
