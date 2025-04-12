@@ -66,9 +66,9 @@ class UserService {
     }
 
     //Регистрация
-    async addUser(id, number, alias, username){
+    async addUser(id, number, alias, username, phone){
         try{
-            const response = await this.apiClient.get(`/addUser/${id}/${number}/${alias}/${username}`)
+            const response = await this.apiClient.get(`/addUser/${id}/${number}/${alias}/${username}/${phone}`)
             return response.data
         } catch(error){
             console.error('Ошибка при регистрации:', error);
@@ -76,7 +76,7 @@ class UserService {
         }
     }
 
-    //Регистрация
+    //Редактирование пользователя
     async redUser(id, username, number){
         try{
             const response = await this.apiClient.get(`/redUser/${id}/${username}/${number}`)

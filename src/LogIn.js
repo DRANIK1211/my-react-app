@@ -8,6 +8,7 @@ const LogIn = ({user}) => {
         number: '',
         code: '',
         username: '',
+        phone: ''
     });
 
     const handleChange = (e) => {
@@ -17,24 +18,59 @@ const LogIn = ({user}) => {
             [name]: value,
         });
     };
+
+    const formatPhone = (value) => {
+        if (!value) return '';
+        
+        const numbers = value.replace(/\D/g, '');
+        let formatted = '';
+        
+        if (numbers.length > 0) {
+            formatted = `+7 (${numbers.substring(1, 4)}`;
+        }
+        if (numbers.length >= 4) {
+            formatted += `) ${numbers.substring(4, 7)}`;
+        }
+        if (numbers.length >= 7) {
+            formatted += `-${numbers.substring(7, 9)}`;
+        }
+        if (numbers.length >= 9) {
+            formatted += `-${numbers.substring(9, 11)}`;
+        }
+        
+        return formatted;
+    };
+
+    const handlePhoneChange = (e) => {
+        const input = e.target.value;
+        const numbers = input.replace(/\D/g, '');
+        
+        if (numbers.length <= 11) {
+            setFormData({
+                ...formData,
+                phone: formatPhone(numbers)
+            });
+        }
+    };
+
     
     const [log, setLog] = useState(false)
 
 
     const handleSubmit = (e) => {
-        if(formData.number ==="" | formData.username==="" | formData.code !== "1111"){
+        if(formData.number ==="" | formData.username==="" | formData.code !== "1111" | formData.phone === ""){
             alert("Корректно заполните все поля")
             return 0;
         }
         e.preventDefault()
         const userService = new UserService("https://andreydrughinin.pythonanywhere.com");
-        userService.addUser(user.id, formData.number, user.username, formData.username)
+        userService.addUser(user.id, formData.number, user.username, formData.username, formData.phone)
         .then(
             () => {
                 setLog(true)
             }
         )
-        setFormData({number:"", code:"", username:""})
+        setFormData({number:"", code:"", username:"", phone:""})
     }
 
     if(log){
@@ -49,6 +85,11 @@ const LogIn = ({user}) => {
                 <div className='text'>ФИО:</div>
                 <div className='inputText'>
                     <input type='text' id="usename" name="username" value={formData.username} onChange={handleChange} />
+                </div>
+
+                <div className='text'>Номер телефона:</div>
+                <div className='inputText'>
+                    <input type='tel' id="phone" name="phone" value={formData.phone} onChange={handlePhoneChange} />
                 </div>
 
                 <div className='text'>Номер реестра:</div>
