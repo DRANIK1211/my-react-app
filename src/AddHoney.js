@@ -106,7 +106,7 @@ const AddHoney = ({ ok, user }) => {
                 </div>
 
                 <label className="check-block">
-                    <input className="check" type="checkbox" name='merc' checked={formData.analysis} onChange={handleInputChange} />
+                    <input className="check" type="checkbox" name='merc' checked={formData.merc} onChange={handleInputChange} />
                     <span className="custom-check"></span>
                     <div className="check-name">Есть меркурий</div>
                 </label>
