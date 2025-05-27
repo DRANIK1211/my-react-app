@@ -95,19 +95,23 @@ const AddHoney = ({ ok, user }) => {
                         }
                     </select>
                 </div>
+                
+                <div className="block">
+                    <div className="name-block">Тара</div>
+                    <div className='input-block'>
+                        <select
+                            value={selectedContainer}
+                            onChange={handleChangeContainer}
+                            className="select-name"
+                        >
+                            {
+                                container_list.map(opt => <option value={opt}>{opt}</option>)
+                            }
+                        </select>
+                    </div>
 
-                <div className="name-block">Тара</div>
-                <div className='input-block'>
-                    <select
-                        value={selectedContainer}
-                        onChange={handleChangeContainer}
-                        className="select-name"
-                    >
-                        {
-                            container_list.map(opt => <option value={opt}>{opt}</option>)
-                        }
-                    </select>
                 </div>
+                
 
 
                 <div className="block">
