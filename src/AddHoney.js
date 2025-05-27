@@ -6,6 +6,9 @@ const AddHoney = ({ ok, user }) => {
 
     const med_list = ['--Не выбрано--', "Гречишный", "Темное разнотравье с гречихой", "Горный", "Дягилевый", "Рапсовый", "Светлое разнотравье с посевными"]
     const [selectedHoney, setSelectedHoney] = useState('--Не выбрано--');
+
+    const container_list = ['--Не выбрано--', "Куб", "Полукуб", "Ведро 20л"]
+    const [selectedContainer, setSelectedContainer] = useState('--Не выбрано--');
     
 
 
@@ -30,10 +33,17 @@ const AddHoney = ({ ok, user }) => {
     const handleChangeName = (event) => {
         setSelectedHoney(event.target.value);
     };
+    const handleChangeContainer = (event) => {
+        setSelectedContainer(event.target.value);
+    };
     const handleSubmit = () => {
         window.Telegram?.WebApp?.hideKeyboard?.();
         if(selectedHoney === '--Не выбрано--'){
             alert("Выберете тип мёда")
+            return 0;
+        }
+        if(selectedContainer === '--Не выбрано--'){
+            alert("Выберете тип тары")
             return 0;
         }
         if(formData.amount === "" | formData.address === ""){
@@ -82,6 +92,17 @@ const AddHoney = ({ ok, user }) => {
                     >
                         {
                             med_list.map(opt => <option value={opt}>{opt}</option>)
+                        }
+                    </select>
+                </div>
+                <div className='input-block'>
+                    <select
+                        value={selectedContainer}
+                        onChange={handleChangeContainer}
+                        className="select-name"
+                    >
+                        {
+                            container_list.map(opt => <option value={opt}>{opt}</option>)
                         }
                     </select>
                 </div>
