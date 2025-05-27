@@ -95,6 +95,8 @@ const AddHoney = ({ ok, user }) => {
                         }
                     </select>
                 </div>
+
+                <div className="name-block">Тара</div>
                 <div className='input-block'>
                     <select
                         value={selectedContainer}
@@ -106,6 +108,8 @@ const AddHoney = ({ ok, user }) => {
                         }
                     </select>
                 </div>
+
+
                 <div className="block">
                     <div className="name-block">Количество (в килограммах)</div>
                     <div className="input-block">
