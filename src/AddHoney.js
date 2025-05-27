@@ -57,6 +57,7 @@ const AddHoney = ({ ok, user }) => {
                 userService.addMed(
                     r[0].number,
                     selectedHoney,
+                    selectedContainer,
                     formData.amount,
                     formData.address,
                     formData.merc ? "Да" : "Нет",
@@ -84,17 +85,22 @@ const AddHoney = ({ ok, user }) => {
         <div className="wrapper">
             <div className="name-screen">Добавить мёд</div>
             <form onSubmit={handleSubmit}>
-                <div className='input-block'>
-                    <select
-                        value={selectedHoney}
-                        onChange={handleChangeName}
-                        className="select-name"
-                    >
-                        {
-                            med_list.map(opt => <option value={opt}>{opt}</option>)
-                        }
-                    </select>
+
+                <div className='block'>
+                    <div className="name-block">Наименование</div>
+                    <div className='input-block'>
+                        <select
+                            value={selectedHoney}
+                            onChange={handleChangeName}
+                            className="select-name"
+                        >
+                            {
+                                med_list.map(opt => <option value={opt}>{opt}</option>)
+                            }
+                        </select>
+                    </div>
                 </div>
+                
                 
                 <div className="block">
                     <div className="name-block">Тара</div>
