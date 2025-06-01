@@ -36,10 +36,8 @@ class UserService {
     async redMed(number, name, amount, address, merc, analysis, date, container) {
         try {
             const response = await this.apiClient.get(`/redMed/${number}/${name}/${amount}/${address}/${merc}/${analysis}/${date}/${container}`);
-            alert(response.data)
             return response.data; // Возвращаем данные в формате JSON
         } catch (error) {
-            alert(error)
             console.error('Ошибка при редактировании:', error);
             throw error; // Пробрасываем ошибку дальше
         }

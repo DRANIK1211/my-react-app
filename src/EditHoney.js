@@ -43,7 +43,6 @@ const EditHoney = ({ honeyData, onSaveSuccess }) => {
         return 0;
     }
     e.preventDefault();
-    alert("начало запроса")
     const userService = new UserService("https://andreydrughinin.pythonanywhere.com")
     userService.redMed(
         initialData.number,
@@ -55,7 +54,6 @@ const EditHoney = ({ honeyData, onSaveSuccess }) => {
         String(initialData.date),
         selectedContainer
     )
-    alert("Конец запроса")
     onSaveSuccess()
   };
     return (
