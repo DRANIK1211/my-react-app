@@ -18,10 +18,7 @@ const EditHoney = ({ honeyData, onSaveSuccess }) => {
   const container_list = ['--Не выбрано--', "Куб", "Полукуб", "Ведро 20л"]
   const [selectedContainer, setSelectedContainer] = useState('--Не выбрано--');
   const handleChangeContainer = (event) => {
-    if (selectedContainer === "--Не выбрано--"){
-        alert("Заполните все поля");
-        return;
-    }
+    
     setSelectedContainer(event.target.value);
 };
 
@@ -44,6 +41,10 @@ const EditHoney = ({ honeyData, onSaveSuccess }) => {
     if(initialData.name === "" | formData.amount === "" | formData.address === ""){
         alert("Заполните все поля")
         return 0;
+    }
+    if (selectedContainer === "--Не выбрано--"){
+        alert("Заполните все поля");
+        return;
     }
     e.preventDefault();
     const userService = new UserService("https://andreydrughinin.pythonanywhere.com")
