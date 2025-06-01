@@ -15,6 +15,16 @@ const EditHoney = ({ honeyData, onSaveSuccess }) => {
     number: 0
   };
 
+  const container_list = ['--Не выбрано--', "Куб", "Полукуб", "Ведро 20л"]
+  const [selectedContainer, setSelectedContainer] = useState('--Не выбрано--');
+  const handleChangeContainer = (event) => {
+    if (selectedContainer === "--Не выбрано--"){
+        alert("Заполните все поля");
+        return;
+    }
+    setSelectedContainer(event.target.value);
+};
+
   const [formData, setFormData] = useState({
     amount: initialData.amount,
     merc: initialData.merc === "Да",
@@ -44,7 +54,8 @@ const EditHoney = ({ honeyData, onSaveSuccess }) => {
         formData.address,
         formData.merc ? "Да" : "Нет",
         formData.analysis ? "Да" : "Нет",
-        String(initialData.date)
+        String(initialData.date),
+        selectedContainer
     )
     onSaveSuccess()
   };
@@ -58,6 +69,23 @@ const EditHoney = ({ honeyData, onSaveSuccess }) => {
                         <input type="text" value={initialData.name} readOnly />
                     </div>
                 </div>
+
+                <div className="block">
+                    <div className="name-block">Тара</div>
+                    <div className='input-block'>
+                        <select
+                            value={selectedContainer}
+                            onChange={handleChangeContainer}
+                            className="select-name"
+                        >
+                            {
+                                container_list.map(opt => <option value={opt}>{opt}</option>)
+                            }
+                        </select>
+                    </div>
+
+                </div>
+
                 <div className="block">
                     <div className="name-block">Количество (в килограммах)</div>
                     <div className="input-block">
