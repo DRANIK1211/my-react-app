@@ -3,7 +3,6 @@ import './style/EditHoney.css'; // Импорт стилей
 import UserService from './data';
 
 const EditHoney = ({ honeyData, onSaveSuccess }) => {
-    alert(honeyData.container)
   const initialData = honeyData[0] || {
     address: "",
     amount: 0,
