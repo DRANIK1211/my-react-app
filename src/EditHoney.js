@@ -12,11 +12,12 @@ const EditHoney = ({ honeyData, onSaveSuccess }) => {
     date: new Date().toLocaleDateString('ru-RU'),
     id: 0,
     name: "",
-    number: 0
+    number: 0,
+    container: '--Не выбрано-- 1'
   };
 
   const container_list = ['--Не выбрано--', "Куботейнер", "Полукуб", "Ведро 10л", "Бочка 200л", "Иное"]
-  const [selectedContainer, setSelectedContainer] = useState(honeyData.container);
+  const [selectedContainer, setSelectedContainer] = useState(initialData.container);
   const handleChangeContainer = (event) => {    
     setSelectedContainer(event.target.value);
 };
