@@ -3,7 +3,6 @@ import './style/EditHoney.css'; // Импорт стилей
 import UserService from './data';
 
 const EditHoney = ({ honeyData, onSaveSuccess }) => {
-    alert(honeyData.container)
   const initialData = honeyData[0] || {
     address: "",
     amount: 0,
@@ -15,8 +14,8 @@ const EditHoney = ({ honeyData, onSaveSuccess }) => {
     number: 0
   };
 
-  const container_list = ['--Не выбрано--', "Куб", "Полукуб", "Ведро 20л"]
-  const [selectedContainer, setSelectedContainer] = useState('--Не выбрано--');
+  const container_list = ['--Не выбрано--', "Куботейнер", "Полукуб", "Ведро 10л", "Бочка 200л", "Иное"]
+  const [selectedContainer, setSelectedContainer] = useState(honeyData.container);
   const handleChangeContainer = (event) => {    
     setSelectedContainer(event.target.value);
 };
