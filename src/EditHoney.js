@@ -15,7 +15,7 @@ const EditHoney = ({ honeyData, onSaveSuccess }) => {
     container: '--Не выбрано-- 1'
   };
 
-  const container_list = ['--Не выбрано--', "Куботейнер", "Полукуб", "Ведро 10л", "Бочка 200л", "Иное"]
+  const container_list = ['--Не выбрано--', "Куботейнер", "Полукуб", "Ведро 11.3л", "Ведро 10л", "Бочка 200л", "Иное"]
   const [selectedContainer, setSelectedContainer] = useState(initialData.container);
   const handleChangeContainer = (event) => {    
     setSelectedContainer(event.target.value);
