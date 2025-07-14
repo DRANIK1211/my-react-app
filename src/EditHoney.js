@@ -12,7 +12,8 @@ const EditHoney = ({ honeyData, onSaveSuccess }) => {
     id: 0,
     name: "",
     number: 0,
-    container: '--Не выбрано-- 1'
+    container: '--Не выбрано--',
+    collectionDate: 2025
   };
 
   const container_list = ['--Не выбрано--', "Куботейнер", "Полукуб", "Ведро 11.3л", "Ведро 10л", "Бочка 200л", "Иное"]
@@ -20,6 +21,12 @@ const EditHoney = ({ honeyData, onSaveSuccess }) => {
   const handleChangeContainer = (event) => {    
     setSelectedContainer(event.target.value);
 };
+
+const collectionDate_list = [2025, 2024, 2023, 2022]
+const [collectionDate, setCollectionDate] = useState(initialData.collectionDate)
+const handleChangeCollectionDate = (event) => {
+    setCollectionDate(event.target.value)
+}
 
   const [formData, setFormData] = useState({
     amount: initialData.amount,
@@ -51,7 +58,8 @@ const EditHoney = ({ honeyData, onSaveSuccess }) => {
         formData.merc ? "Да" : "Нет",
         formData.analysis ? "Да" : "Нет",
         String(initialData.date),
-        selectedContainer
+        selectedContainer,
+        collectionDate
     )
     onSaveSuccess()
   };
@@ -76,6 +84,22 @@ const EditHoney = ({ honeyData, onSaveSuccess }) => {
                         >
                             {
                                 container_list.map(opt => <option value={opt}>{opt}</option>)
+                            }
+                        </select>
+                    </div>
+
+                </div>
+
+                <div className="block">
+                    <div className="name-block">Год сбора</div>
+                    <div className='input-block'>
+                        <select
+                            value={collectionDate}
+                            onChange={handleChangeCollectionDate}
+                            className="select-name"
+                        >
+                            {
+                                collectionDate_list.map(opt => <option value={opt}>{opt}</option>)
                             }
                         </select>
                     </div>
