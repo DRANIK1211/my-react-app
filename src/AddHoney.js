@@ -9,7 +9,9 @@ const AddHoney = ({ ok, user }) => {
 
     const container_list = ['--Не выбрано--', "Куботейнер", "Полукуб", "Ведро 11.3л", "Ведро 10л", "Бочка 200л", "Иное"]
     const [selectedContainer, setSelectedContainer] = useState('--Не выбрано--');
-    
+
+    const collectionDate_list = [2025, 2024, 2023, 2022]
+    const [collectionDate, setCollectionDate] = useState(2025)
 
 
     const initialData = {
@@ -36,6 +38,9 @@ const AddHoney = ({ ok, user }) => {
     const handleChangeContainer = (event) => {
         setSelectedContainer(event.target.value);
     };
+    const handleChangeCollectionDate = (event) => {
+        setCollectionDate(event.target.value)
+    }
     const handleSubmit = () => {
         window.Telegram?.WebApp?.hideKeyboard?.();
         if(selectedHoney === '--Не выбрано--'){
@@ -62,7 +67,8 @@ const AddHoney = ({ ok, user }) => {
                     formData.address,
                     formData.merc ? "Да" : "Нет",
                     formData.analysis ? "Да" : "Нет",
-                    String(initialData.date)
+                    String(initialData.date),
+                    collectionDate
                 )
             }
         ).catch(
@@ -118,7 +124,21 @@ const AddHoney = ({ ok, user }) => {
 
                 </div>
                 
-                
+                <div className="block">
+                    <div className="name-block">Год сбора</div>
+                    <div className='input-block'>
+                        <select
+                            value={collectionDate}
+                            onChange={handleChangeCollectionDate}
+                            className="select-name"
+                        >
+                            {
+                                collectionDate_list.map(opt => <option value={opt}>{opt}</option>)
+                            }
+                        </select>
+                    </div>
+
+                </div>
 
 
                 <div className="block">

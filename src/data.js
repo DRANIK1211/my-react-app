@@ -33,9 +33,9 @@ class UserService {
     }
 
     // Метод для редактирования медов
-    async redMed(number, name, amount, address, merc, analysis, date, container) {
+    async redMed(number, name, amount, address, merc, analysis, date, container, collectionDate) {
         try {
-            const response = await this.apiClient.get(`/redMed/${number}/${name}/${amount}/${address}/${merc}/${analysis}/${date}/${container}`);
+            const response = await this.apiClient.get(`/redMed/${number}/${name}/${amount}/${address}/${merc}/${analysis}/${date}/${container}/${collectionDate}`);
             return response.data; // Возвращаем данные в формате JSON
         } catch (error) {
             console.error('Ошибка при редактировании:', error);
@@ -44,9 +44,9 @@ class UserService {
     }
 
     // Метод для добавления мёда
-    async addMed(id, name, container, amount, address, merc, analysis, date) {
+    async addMed(id, name, container, amount, address, merc, analysis, date, collectionDate) {
         try {
-            const response = await this.apiClient.get(`/addMed/${id}/${name}/${amount}/${address}/${merc}/${analysis}/${date}/${container}`);
+            const response = await this.apiClient.get(`/addMed/${id}/${name}/${amount}/${address}/${merc}/${analysis}/${date}/${container}/${collectionDate}`);
             return response.data; // Возвращаем данные в формате JSON
         } catch (error) {
             console.error('Ошибка при добавлении:', error);
